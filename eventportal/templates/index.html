@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/hero/logo.png" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/hero/logo.png') }}"/>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +17,8 @@
     />
 
     <!-- External CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/queries.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/queries.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font Awesome -->
     <script
@@ -31,7 +31,7 @@
 
   <body>
     <header class="header">
-      <img src="/assets/final.png" class="logo" alt="logo of jyothi" />
+      <img src="{{ url_for('static', filename='img/final.png') }}" class="logo" alt="logo of jyothi" />
       <nav class="main-nav">
         <ul class="main-nav-list">
           <li>
@@ -89,20 +89,20 @@
             </div>
           </div>
           <div class="hero-img-wrapper">
-            <img src="/assets/hero/logo.png" />
+            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" />
           </div>
           <div class="mobile-hero-img">
-            <img src="/assets/hero/logo.png" />
+            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" />
           </div>
         </div>
       </section>
       <section class="featured-logos">
         <img
-          src="/assets/credit/1_kHGezmjRSsinyHaK1WLMOw-1 (1) (2).png"
+          src="{{ url_for('static', filename='img/credit/1_kHGezmjRSsinyHaK1WLMOw-1 (1) (2).png') }}"
           alt="forbes logo"
         />
-        <img src="/assets/credit/nba.png" />
-        <img src="/assets/credit/ariia_logo.png" />
+        <img src="{{ url_for('static', filename='/img/credit/nba.png') }}" />
+        <img src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}" />
       </section>
 
       <section class="section-events" id="events">
@@ -113,7 +113,7 @@
         <div class="event-card-overview">
           <div class="event-card">
             <img
-              src="/assets/events/carnival.jpg"
+              src="{{ url_for('static', filename='/img/events/carnival.jpg') }}"
               alt="japanese gyozas on a plate"
             />
             <div class="event-card-body">
@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="event-card">
-            <img src="/assets/events/event2.jpg" />
+            <img src="{{ url_for('static', filename='/img/events/event2.jpg') }}" />
             <div class="event-card-body">
               <p class="event-card-heading">Pro-Show</p>
               <p class="event-card-desc">
@@ -155,7 +155,7 @@
             </div>
           </div>
           <div class="event-card">
-            <img src="/assets/events/event3.jpg" />
+            <img src="{{ url_for('static', filename='/img/events/event3.jpg') }}" />
             <div class="event-card-body">
               <p class="event-card-heading">Motoverse</p>
               <p class="event-card-desc">
@@ -175,7 +175,7 @@
             </div>
           </div>
           <div class="event-card">
-            <img src="/assets/events/event4.jpg" />
+            <img src="{{ url_for('static', filename='/img/events/event4.jpg') }}" />
             <div class="event-card-body">
               <p class="event-card-heading">Laser Tag</p>
               <p class="event-card-desc">
@@ -210,7 +210,7 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="/assets/user/istockphoto-610003972-612x612.jpg" />
+                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -224,7 +224,7 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="/assets/user/istockphoto-610003972-612x612.jpg" />
+                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -238,7 +238,7 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="/assets/user/istockphoto-610003972-612x612.jpg" />
+                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -252,7 +252,7 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="/assets/user/istockphoto-610003972-612x612.jpg" />
+                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -266,7 +266,7 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="/assets/user/istockphoto-610003972-612x612.jpg" />
+                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -280,7 +280,7 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="/assets/user/istockphoto-610003972-612x612.jpg" />
+                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -293,7 +293,9 @@
       <section class="section-signup" id="signup">
         <h1 class="subheading">[Sign Up]</h1>
         <div class="signup-box">
-          <div class="signup-img"></div>
+          <div class="signup-img">
+
+          </div>
 
           <div class="signup-form">
             <h1 class="signup-heading">
@@ -336,7 +338,7 @@
       <div class="section-footer" id="footer">
         <div class="logo-col">
           <a href="#" class="footer-logo">
-            <img src="/assets/final.png" class="logo" alt="Jyothi logo" />
+            <img src="{{ url_for('static', filename='/img/final.png') }}" class="logo" alt="Jyothi logo" />
           </a>
 
           <ul class="social-links">
@@ -408,6 +410,6 @@
       </div>
     </footer>
 
-    <script defer src="js/script.js"></script>
+    <script defer src="{{ url_for('static',filename='js/script.js') }}"></script>
   </body>
 </html>
