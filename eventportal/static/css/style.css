@@ -312,7 +312,7 @@ small {
   text-align: start;
 }
 
-/* MEALS SECTION */
+/* EVENT SECTION */
 .section-events {
   background: linear-gradient(
     180deg,
@@ -335,7 +335,7 @@ small {
   margin-top: 3rem;
 }
 
-/* MEAL CARDS */
+/* EVENT CARDS */
 .event-card {
   border: 1px solid rgba(230, 230, 230, 0.6);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
@@ -387,7 +387,7 @@ small {
   background: white;
 }
 
-/* MEAL TYPES LIST EXPANDED in MEAL SECTION */
+/* EVENT TYPES LIST */
 .event-types-overview {
   margin: 4rem auto;
   font-size: 1.8rem;
@@ -409,7 +409,7 @@ small {
   white-space: nowrap;
 }
 
-/* TESTIMONIALS SECTION */
+/* FEEDBACK SECTION */
 .section-feedback {
   display: grid;
   gap: 5rem;
@@ -420,7 +420,7 @@ small {
   border-bottom: 1px solid rgba(128, 128, 128, 0.138);
 }
 
-/* TESTIMONIALS: TESTIMONIALS CARDS */
+/* FEEDBACK: FEEDBACK CARDS */
 .feedback {
   align-self: center;
 }
@@ -467,7 +467,7 @@ small {
   margin-left: 1rem;
 }
 
-/* SUBSCRIBE FORM */
+/* SIGNUP FORM */
 .section-signup {
   padding: 8rem;
 }
@@ -510,7 +510,7 @@ small {
   opacity: 0.75;
 }
 
-/* SUBSCRIBE FORM ELEMENTS */
+/* SIGNUP FORM ELEMENTS */
 .signup-form form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
