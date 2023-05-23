@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/hero/logo.png') }}"/>
+    <!------------------ Favicon -------------------->
+    <link rel="icon" type="image/x-icon" href="/assets/hero/logo.png" />
 
-    <!-- Google Font -->
+    <!---------------- Font Awesome ---------------->
+    <script
+      src="https://kit.fontawesome.com/8b02daf965.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!------------------- Google Font ---------------------->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,19 +22,13 @@
       rel="stylesheet"
     />
 
-    <!-- External CSS -->
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/queries.css') }}" rel="stylesheet" type="text/css" />
-
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/8b02daf965.js"
-      crossorigin="anonymous"
-    ></script>
+    <!------------------- External CSS ---------------------->
+    <link href="{{ url_for('static', filename='css/admin.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/admin_queries.css') }}s" rel="stylesheet" type="text/css" />
 
     <title>CollegeEventPortal</title>
   </head>
-
+  <!---------------------- NAV ----------------------->
   <body>
     <header class="header">
       <img src="{{ url_for('static', filename='img/final.png') }}" class="logo" alt="logo of jyothi" />
@@ -48,12 +48,20 @@
           </li>
         </ul>
         <a href="#signup" class="btn solid-btn mobile-order nav-link"
+          ><i class="fa fa-plus-circle"> </i> Create event</a
+        >
+        <a href="#signup" class="btn solid-btn mobile-order nav-link"
           ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
         >
       </nav>
-      <a href="#signup" class="btn solid-btn desktop-order nav-link"
-        ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
-      >
+      <div class="">
+        <a href="#" class="btn solid-btn desktop-order nav-link"
+          ><i class="fa fa-plus-circle"></i> Create Event</a
+        >
+        <a href="#signup" class="btn solid-btn desktop-order nav-link"
+          ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
+        >
+      </div>
 
       <button class="mobile-nav-btn">
         <span class="mobile-open">
@@ -83,23 +91,29 @@
                 </li>
               </ul>
             </div>
+            <!-- <div class="hero-buttons">
+              <a href="#" class="btn solid-btn">Create Event</a>
+              <a href="#footer" class="btn outline-btn">Contact</a>
+            </div> -->
           </div>
           <div class="hero-img-wrapper">
-            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi"/>
+            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi" />
           </div>
           <div class="mobile-hero-img">
-            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi"/>
+            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi" />
           </div>
         </div>
       </section>
       <section class="featured-logos">
         <img
           src="{{ url_for('static', filename='img/credit/1_kHGezmjRSsinyHaK1WLMOw-1 (1) (2).png') }}"
-          alt="forbes logo"
+          alt="feartured logo"
         />
-        <img src="{{ url_for('static', filename='/img/credit/nba.png') }}" alt="nba logo"/>
-        <img src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}" alt="ariia logo"/>
+        <img src="{{ url_for('static', filename='/img/credit/nba.png') }}" alt="feartured logo" />
+        <img src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}" alt="feartured logo" />
       </section>
+
+      <!------------------------- EVENT LISTED------------------------------>
 
       <section class="section-events" id="events">
         <h1 class="subheading">[event registration]</h1>
@@ -108,16 +122,9 @@
         </h2>
         <div class="event-card-overview">
           <div class="event-card">
-            <img
-              src="{{ url_for('static', filename='/img/events/carnival.jpg') }}"
-              alt="carnival image"
-            />
+            <img src="{{ url_for('static', filename='/img/events/carnival.jpg') }}" alt="event logo" />
             <div class="event-card-body">
               <p class="event-card-heading">Carnival</p>
-              <p class="event-card-desc">
-                Carnival is a festive season typically celebrated with parades,
-                colorful costumes, music, and dancing.
-              </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -128,16 +135,14 @@
                   <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
                 </li>
               </ul>
+              <a href="" class="evebtn solid-evebtn">Edit</a>
+              <a href="" class="evebtn outline-evebtn">Delete</a>
             </div>
           </div>
           <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/event2.jpg') }}" alt="proshow image"/>
+            <img src="{{ url_for('static', filename='/img/events/event2.jpg') }}" alt="event logo" />
             <div class="event-card-body">
               <p class="event-card-heading">Pro-Show</p>
-              <p class="event-card-desc">
-                A concert is a live performance of music or other artistic works
-                by one or more performers.
-              </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -148,16 +153,14 @@
                   <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
                 </li>
               </ul>
+              <a href="" class="evebtn solid-evebtn">Edit</a>
+              <a href="" class="evebtn outline-evebtn">Delete</a>
             </div>
           </div>
           <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/event3.jpg') }}" alt="car image"/>
+            <img src="{{ url_for('static', filename='/img/events/event3.jpg') }}" alt="event logo" />
             <div class="event-card-body">
               <p class="event-card-heading">Motoverse</p>
-              <p class="event-card-desc">
-                Opportunity for automakers to showcase their latest models,for
-                car enthusiasts to see them in person.
-              </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -168,16 +171,14 @@
                   <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
                 </li>
               </ul>
+              <a href="" class="evebtn solid-evebtn">Edit</a>
+              <a href="" class="evebtn outline-evebtn">Delete</a>
             </div>
           </div>
           <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/event4.jpg') }}" alt="lazertag image"/>
+            <img src="{{ url_for('static', filename='/img/events/event4.jpg') }}" alt="event logo" />
             <div class="event-card-body">
               <p class="event-card-heading">Laser Tag</p>
-              <p class="event-card-desc">
-                Laser tag is a recreational shooting game where players use
-                handheld infrared-emitting devices.
-              </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -188,13 +189,18 @@
                   <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
                 </li>
               </ul>
+              <a href="" class="evebtn solid-evebtn">Edit</a>
+              <a href="" class="evebtn outline-evebtn">Delete</a>
             </div>
           </div>
         </div>
         <div class="event-types-overview">
-          <span>More events -></span>
+          <a href="your-link-here">More events -></a>
         </div>
       </section>
+
+      <!-------------------- FEEDBACK ------------------------>
+
       <section class="section-feedback" id="feedback">
         <div class="feedback">
           <h1 class="subheading heading-left">[feedback]</h1>
@@ -206,7 +212,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demo profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -220,7 +229,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demo profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -234,7 +246,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demo profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -248,7 +263,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demo profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -262,7 +280,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demo profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -276,7 +297,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demo profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -286,12 +310,13 @@
           </div>
         </div>
       </section>
+
+      <!-------------- SIGN UP --------------------------->
+
       <section class="section-signup" id="signup">
         <h1 class="subheading">[Sign Up]</h1>
         <div class="signup-box">
-          <div class="signup-img">
-
-          </div>
+          <div class="signup-img"></div>
 
           <div class="signup-form">
             <h1 class="signup-heading">
@@ -329,6 +354,8 @@
         </div>
       </section>
     </main>
+
+    <!--------------------FOOTER---------------------------->
 
     <footer>
       <div class="section-footer" id="footer">
