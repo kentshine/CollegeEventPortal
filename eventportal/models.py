@@ -10,7 +10,7 @@ def load_user(user_id):
 
 
 class User(db.Model, UserMixin):
-    __tablename__ = "users"
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
@@ -29,18 +29,24 @@ class User(db.Model, UserMixin):
 
 
 class Event(db.Model):
-    user = db.relationship(User)
+    users = db.relationship(User)
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(140), nullable=False)
-    text = db.Column(db.Text, nullable=False)
+    event_date = db.Column(db.String,nullable=False)
+    event_time = db.Column(db.String,nullable=False)
+    location = db.Column(db.String,nullable=False)
+    description = db.Column(db.Text, nullable=False)
 
-    def __int__(self, title, text, user_id):
-        self.title = title
-        self.text = text
+    def __int__(self,user_id,title,event_date,event_time,location,description):
         self.user_id = user_id
+        self.title = title
+        self.event_date = event_date
+        self.event_time = event_time
+        self.location = location
+        self.description = description
+
 
     def __repr__(self):
-        return f"Event Id: {self.id} --- Date: {self.date} --- Title: {self.title}"
+        return f"Event Id: {self.id} --- Date: {self.event_date} --- Title: {self.title} --- Created By:{self.user_id}"

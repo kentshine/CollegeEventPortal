@@ -49,6 +49,7 @@ def login():
                 next_page = url_for('core.index')
 
             flash("Logged in Successfully")
+            print("Logged in as " , user)
             return redirect(next_page)
     return render_template('login.html')
 
