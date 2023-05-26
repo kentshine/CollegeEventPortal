@@ -9,8 +9,6 @@ users = Blueprint('users', __name__)
 
 @users.route("/register",methods=['GET','POST'])
 def register():
-    form = RegistrationForm()
-
     if request.method == "POST":
         email = request.form.get('email')
         password = request.form.get('password')
@@ -26,6 +24,7 @@ def register():
             flash("Thanks for registering! Now you can login!")
             print(user)
             return redirect(url_for('users.login'))
+
     return render_template('register.html')
 
 @users.route("/login",methods=['GET','POST'])
@@ -40,6 +39,7 @@ def login():
 
         if user is None:
             flash("Email or password is incorrect")
+
 
         elif user.check_password(password) and user is not None:
             login_user(user)

@@ -30,7 +30,7 @@ def event(event_id):
     return render_template("event.html",title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description)
 
 
-@events.route("/<int:event_id/>/update",method=['GET','POST'])
+@events.route("/<int:event_id>/update",methods=['GET','POST'])
 @login_required
 def update(event_id):
     event = Event.query.get_or_404(event_id)
