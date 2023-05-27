@@ -138,18 +138,18 @@ button{
         <div class="shape"></div>
     </div>
     <form method="POST">
-        <h3>Login Here</h3>
+        <h3>Register Here</h3>
 
         <label for="email">email</label>
-        <input type="text" name="email" placeholder="Email" id="email">
+        <input type="email" name="email" placeholder="Email" id="email">
 
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="Password" id="password">
         <button>
-            Log In
+            Register
         </button>
         <div class="social">
-          <div class="go"> Login</div>
+          <div class="go"><a href="{{ url_for('users.login') }}">Login</a></div>
         </div>
     </form>
 </body>

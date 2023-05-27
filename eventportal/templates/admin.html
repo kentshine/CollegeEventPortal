@@ -121,78 +121,26 @@
           Jyothi brings a ton of engaging <br /><span>events</span> every year
         </h2>
         <div class="event-card-overview">
+          {% for event in events.items %}
           <div class="event-card">
             <img src="{{ url_for('static', filename='/img/events/carnival.jpg') }}" alt="event logo" />
             <div class="event-card-body">
-              <p class="event-card-heading">Carnival</p>
+              <p class="event-card-heading">{{ event.title }}</p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
+                  ><span>{{ event.event_date }}</span>
                 </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
+                <li><i class="fa-solid fa-clock"></i><span>{{ event.event_time }}</span></li>
                 <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
+                  <i class="fa-solid fa-location-dot"></i><span>{{ event.location }}</span>
                 </li>
               </ul>
-              <a href="" class="evebtn solid-evebtn">Edit</a>
-              <a href="" class="evebtn outline-evebtn">Delete</a>
+              <a href="{{ url_for('events.update') }}" class="evebtn solid-evebtn">Edit</a>
+              <a href="{{ url_for('events.delete') }}" class="evebtn outline-evebtn">Delete</a>
             </div>
           </div>
-          <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/event2.jpg') }}" alt="event logo" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Pro-Show</p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-              <a href="" class="evebtn solid-evebtn">Edit</a>
-              <a href="" class="evebtn outline-evebtn">Delete</a>
-            </div>
-          </div>
-          <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/event3.jpg') }}" alt="event logo" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Motoverse</p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-              <a href="" class="evebtn solid-evebtn">Edit</a>
-              <a href="" class="evebtn outline-evebtn">Delete</a>
-            </div>
-          </div>
-          <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/event4.jpg') }}" alt="event logo" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Laser Tag</p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-              <a href="" class="evebtn solid-evebtn">Edit</a>
-              <a href="" class="evebtn outline-evebtn">Delete</a>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="event-types-overview">
           <a href="your-link-here">More events -></a>
