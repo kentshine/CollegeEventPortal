@@ -47,19 +47,13 @@
             <a href="https://www.jecc.ac.in/" class="nav-link">About</a>
           </li>
         </ul>
-        <a href="#signup" class="btn solid-btn mobile-order nav-link"
-          ><i class="fa fa-plus-circle"> </i> Create event</a
-        >
-        <a href="#signup" class="btn solid-btn mobile-order nav-link"
-          ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
+        <a href="{{ url_for('events.create') }}" class="btn solid-btn mobile-order nav-link"
+          ><i class="fa fa-plus-circle"> </i>Create event</a
         >
       </nav>
       <div class="">
-        <a href="#" class="btn solid-btn desktop-order nav-link"
+        <a href="{{ url_for('events.create') }}" class="btn solid-btn desktop-order nav-link"
           ><i class="fa fa-plus-circle"></i> Create Event</a
-        >
-        <a href="#signup" class="btn solid-btn desktop-order nav-link"
-          ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
         >
       </div>
 
@@ -125,7 +119,7 @@
           <div class="event-card">
             <img src="{{ url_for('static', filename='/img/events/carnival.jpg') }}" alt="event logo" />
             <div class="event-card-body">
-              <p class="event-card-heading">{{ event.title }}</p>
+             <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -136,8 +130,8 @@
                   <i class="fa-solid fa-location-dot"></i><span>{{ event.location }}</span>
                 </li>
               </ul>
-              <a href="{{ url_for('events.update') }}" class="evebtn solid-evebtn">Edit</a>
-              <a href="{{ url_for('events.delete') }}" class="evebtn outline-evebtn">Delete</a>
+              <a href="{{ url_for('events.update',event_id=event.id) }}" class="evebtn solid-evebtn">Edit</a>
+              <a href="{{ url_for('events.delete',event_id=event.id) }}" class="evebtn outline-evebtn">Delete</a>
             </div>
           </div>
           {% endfor %}

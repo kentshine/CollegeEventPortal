@@ -7,7 +7,7 @@ events = Blueprint('events',__name__)
 
 @events.route('/create',methods=['GET','POST'])
 @login_required
-def create_post():
+def create():
     if request.method == "POST":
         title = request.form.get('title')
         location = request.form.get('location')
@@ -20,25 +20,23 @@ def create_post():
         db.session.add(event)
         db.session.commit()
         print(event)
-        return redirect(url_for('core.index'))
+        next_page = request.args.get('next')
+        if next_page is None or not next_page[0]=="/":
+            next_page=url_for('core.admin')
+        return redirect(next_page)
 
     return render_template('create.html')
 
 @events.route("/<int:event_id>")
 def event(event_id):
     event = Event.query.get_or_404(event_id)
-    return render_template("event.html",title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description)
+    return render_template("eventpage.html",title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description)
 
-@events.route("/eventpage")
-def event_view():
-    return render_template('eventpage.html')
+
 
 @events.route("/<int:event_id>/update",methods=['GET','POST'])
-@login_required
 def update(event_id):
     event = Event.query.get_or_404(event_id)
-    if event.creator != current_user:
-        abort(403)
 
     if request.method == "POST":
         title = request.form.get('title')
@@ -50,12 +48,15 @@ def update(event_id):
 
     return render_template('create.html',title='Update')
 
-@events.route('/<int:event_id>/delete',methods=['POST'])
-@login_required
-def delete_event(event_id):
+@events.route('/<int:event_id>/delete',methods=['POST','GET'])
+def delete(event_id):
     event = Event.query.get_or_404(event_id)
-    if event.creator != current_user:
-        abort(403)
     db.session.delete(event)
     db.session.commit()
-    return redirect(url_for('core.index'))
+
+    next_page = request.args.get('next')
+    if next_page is None or not request.args.get('next')[0]=="/":
+        next_page = url_for('core.admin')
+
+    return redirect(next_page)
+

@@ -113,7 +113,7 @@
               alt="carnival image"
             />
             <div class="event-card-body">
-              <p class="event-card-heading">{{ event.title }}</p>
+              <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
               <p class="event-card-desc">
                 {{ event.description }}
               </p>

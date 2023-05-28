@@ -153,14 +153,11 @@ img {
     <div class="container">
       <header>
         <div class="header-text-box">
-          <h1>Innovation Junction: Exploring the Future</h1>
+          <h1>{{ title }}</h1>
           <img src="{{ url_for('static',filename='img/nasa-Q1p7bh3SHj8-unsplash.jpg') }}" alt="Photo" />
 
           <p class="header-text">
-            Join us at Innovation Junction, a captivating event that unveils the
-            latest breakthroughs and technological wonders shaping the future!
-            Step into a realm where imagination meets reality and prepare to be
-            inspired, educated, and amazed.
+            {{ description }}
           </p>
           <h2>Event Schedule</h2>
           <div class="grid-3-cols">
@@ -182,7 +179,7 @@ img {
               </svg>
 
               <p class="schedule">
-                <strong>Main Hall No. 2</strong>
+                <strong>{{location}}</strong>
               </p>
             </div>
 
@@ -210,7 +207,7 @@ img {
               </svg>
 
               <p class="schedule">
-                <strong>12/2/2023</strong>
+                <strong>{{event_date}}</strong>
               </p>
             </div>
 
@@ -227,7 +224,7 @@ img {
               </svg>
 
               <p class="schedule">
-                <strong>12:30 am</strong>
+                <strong>{{event_time}}</strong>
               </p>
             </div>
           </div>
