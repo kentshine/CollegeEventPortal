@@ -1,0 +1,130 @@
+@media only screen and (max-width: 83em) {
+  .event-card .event-types-list li {
+    padding: 0.4rem 0.6rem;
+    margin: 0.2rem;
+  }
+
+  .event-card .event-types-list {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  .event-card-body {
+    padding: 1rem 1.4rem;
+  }
+
+  .event-card-heading {
+    font-size: 1.6rem;
+    margin: 1rem 0.6rem;
+  }
+
+  .event-card-desc {
+    margin: auto 0.6rem 0.6rem 0.6rem;
+  }
+
+  .event-stats {
+    font-size: 1.4rem;
+    margin: 0 1rem;
+  }
+
+  .event-stats li {
+    padding-bottom: 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 72em) {
+  html,
+  body {
+    font-size: 65%;
+  }
+}
+
+@media only screen and (max-width: 64em) {
+  .event-card-overview {
+    grid-template-columns: repeat(2, minmax(28rem, 38rem));
+    gap: 3rem;
+  }
+
+  .event-card .event-types-list li {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .event-card .event-types-list {
+    font-size: 1.3rem;
+    line-height: 3rem;
+  }
+
+  .event-card-heading {
+    font-size: 2.2rem;
+    margin: 1rem 0.6rem;
+  }
+
+  .event-card-desc {
+    margin: auto 0.6rem 0.6rem 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  .event-stats {
+    font-size: 1.8rem;
+  }
+
+  .event-stats li {
+    padding-bottom: 1rem;
+  }
+
+  @media only screen and (max-width: 58em) {
+    html,
+    body {
+      font-size: 60%;
+    }
+  }
+
+  @media only screen and (max-width: 35em) {
+    .header {
+      padding: 0 2rem;
+    }
+
+    .subheading {
+      font-size: 2rem;
+    }
+
+    .event-types-overview .event-types-list {
+      margin: 1rem;
+      transform: scale(1);
+    }
+
+    .event-card-overview {
+      grid-template-columns: auto;
+    }
+
+    .event-card {
+      width: 40rem;
+    }
+
+    .event-card-body {
+      padding: 2rem;
+    }
+
+    .event-card-heading {
+      font-size: 2.4rem;
+    }
+
+    .event-card-desc {
+      font-size: 1.6rem;
+    }
+
+    .event-stats {
+      font-size: 2rem;
+    }
+
+    .event-types-overview br {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 30em) {
+    .event-card {
+      width: 32rem;
+    }
+  }
+}

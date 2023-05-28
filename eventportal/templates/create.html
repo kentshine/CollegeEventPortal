@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CreateEventForm</title>
-    <link href="{{url_for('static',filename='css/create.css')}}" rel="stylesheet" type="text/css" />
+    <link
+      href="{{url_for('static',filename='css/create.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap"
       rel="stylesheet"
@@ -17,39 +21,46 @@
     </header>
     <div class="wrapper">
       <div class="title">Create Event</div>
-        <form method="POST">
-             <div class="form">
-        <div class="inputfield">
-          <label>Event Name</label>
-          <input name="title" type="text" class="input" />
+      <form method="POST">
+        <div class="form">
+          <div class="inputfield">
+            <label>Event Name</label>
+            <input name="title" type="text" class="input" />
+          </div>
+          <div class="inputfield">
+            <label>Location</label>
+            <select name="location" class="input">
+              <option>Main Hall</option>
+              <option>Alumini Corner</option>
+              <option>Hall No.1</option>
+              <option>Hall No.2</option>
+            </select>
+          </div>
+          <div class="inputfield">
+            <label>Date</label>
+            <input name="date" type="date" class="input" />
+          </div>
+          <div class="inputfield">
+            <label>Time</label>
+            <input name="time" type="time" class="input" />
+          </div>
+          <div class="inputfield">
+            <label>Event Banner</label>
+            <input type="file" class="input" />
+          </div>
+          <div class="inputfield">
+            <label>Event Description</label>
+            <textarea
+              name="description"
+              class="textarea"
+              maxlength="50"
+            ></textarea>
+          </div>
+          <div class="inputfield">
+            <input type="submit" value="Save Event" class="btn" />
+          </div>
         </div>
-        <div class="inputfield">
-          <label>Location</label>
-          <select name="location" id="cars" class="input">
-            <option>Main Hall</option>
-            <option>Alumini Corner</option>
-            <option>Hall No.1</option>
-            <option>Hall No.2</option>
-          </select>
-        </div>
-        <div class="inputfield">
-          <label>Date</label>
-          <input name="date" type="date" class="input" />
-        </div>
-        <div class="inputfield">
-          <label>Time</label>
-          <input name="time" type="time" class="input" />
-        </div>
-        <div class="inputfield">
-          <label>Event Description</label>
-          <textarea name="description" class="textarea" maxlength="50"></textarea>
-        </div>
-        <div class="inputfield">
-          <input type="submit" value="Save Event" class="btn" />
-        </div>
-      </div>
-        </form>
-
+      </form>
     </div>
   </body>
 </html>
