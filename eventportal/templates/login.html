@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
     <title>Jyothi Event Portal | Login</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -8,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&amp;display=swap"
       rel="stylesheet"
     />
 
@@ -21,49 +22,51 @@
         box-sizing: border-box;
       }
       body {
-        background-color: #080710;
+        background-color: linear-gradient(
+          359.56deg,
+          rgba(8, 141, 230, 0.43) -32.94%,
+          rgba(216, 245, 204, 0) 99.61%
+        );
       }
-      .background {
+
+      /* .background {
+        color: rgb(255, 255, 255);
         width: 430px;
         height: 520px;
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
-      }
-      .background .shape {
+      } */
+
+      /* .background .shape {
         height: 200px;
         width: 200px;
         position: absolute;
         border-radius: 50%;
-      }
-      .shape:first-child {
-        background: linear-gradient(#1845ad, #23a2f6);
-        left: -80px;
-        top: -80px;
-      }
-      .shape:last-child {
-        background: linear-gradient(to right, #ff512f, #f09819);
-        right: -30px;
-        bottom: -80px;
-      }
+      } */
+
       form {
         height: 520px;
         width: 400px;
-        background-color: rgba(255, 255, 255, 0.13);
+        background: linear-gradient(
+          359.56deg,
+          rgba(8, 141, 230, 0.43) -32.94%,
+          rgba(216, 245, 204, 0) 99.61%
+        );
         position: absolute;
         transform: translate(-50%, -50%);
         top: 50%;
         left: 50%;
         border-radius: 10px;
         backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 255, 255, 0.1);
+        /* border: 2px solid rgba(255, 255, 255, 0.199); */
         box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
         padding: 50px 35px;
       }
       form * {
         font-family: "Poppins", sans-serif;
-        color: #ffffff;
+        color: #000000;
         letter-spacing: 0.5px;
         outline: none;
         border: none;
@@ -85,7 +88,7 @@
         display: block;
         height: 50px;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.07);
+        background-color: rgba(0, 0, 0, 0.07);
         border-radius: 3px;
         padding: 0 10px;
         margin-top: 8px;
@@ -93,7 +96,7 @@
         font-weight: 300;
       }
       ::placeholder {
-        color: #e5e5e5;
+        color: #464545;
       }
       button {
         margin-top: 50px;
@@ -111,7 +114,7 @@
         display: flex;
       }
       .social div {
-        background: red;
+        background: rgb(255, 255, 255);
         width: 100%;
         border-radius: 3px;
         padding: 5px 10px 10px 5px;
@@ -128,18 +131,33 @@
       .social i {
         margin-right: 4px;
       }
+
+      @media (max-width: 700em) {
+        .body .form .input {
+          /* flex-direction: column;
+          align-items: flex-start; */
+          size: 30rem;
+        }
+        .body .form .inputfield label {
+          margin-bottom: 50px;
+        }
+        .wrapper .form .inputfield.terms {
+          flex-direction: row;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
     <form method="POST">
       <h3>Login Here</h3>
 
       <label for="email">Email</label>
-      <input type="email" name="email" placeholder="Email" id="email" />
+      <input
+        type="email"
+        name="email"
+        placeholder="name.cse20@jecc.ac.in"
+        id="email"
+      />
 
       <label for="password">Password</label>
       <input
