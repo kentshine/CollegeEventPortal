@@ -17,8 +17,8 @@
     />
 
     <!-- External CSS -->
-    <link href="css/MorePages-queries.css" rel="stylesheet" type="text/css" />
-    <link href="css/MorePagres-style.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static',filename='css/MorePages-queries.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static',filename='css/MorePagres-style.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font Awesome -->
     <script
@@ -31,133 +31,34 @@
 
   <body>
     <header class="header">
-      <img src="/assets/final.png" class="logo" alt="logo of jyothi" />
+      <img src="{{ url_for('static',filename='img/final.png') }}" class="logo" alt="logo of jyothi" />
     </header>
 
     <main>
       <section class="section-events">
         <h1 class="subheading">[More Events]</h1>
         <div class="event-card-overview">
+          {% for event in events.items %}
           <div class="event-card">
-            <img src="/assets/events/carnival.jpg" />
+            <img src="{{ url_for('static',filename='event_wallpapers//' + event.wallpaper) }}" />
             <div class="event-card-body">
-              <p class="event-card-heading">Carnival</p>
+              <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
               <p class="event-card-desc">
-                Carnival is a festive season typically celebrated with parades,
-                colorful costumes, music, and dancing.
+                {{ event.description }}
               </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
+                  ><span>{{event.event_date}}</span>
                 </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
+                <li><i class="fa-solid fa-clock"></i><span>{{event.event_time}}</span></li>
                 <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
+                  <i class="fa-solid fa-location-dot"></i><span>{{event.location}}</span>
                 </li>
               </ul>
             </div>
           </div>
-          <div class="event-card">
-            <img src="/assets/events/event2.jpg" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Pro-Show</p>
-              <p class="event-card-desc">
-                A concert is a live performance of music or other artistic works
-                by one or more performers.
-              </p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="event-card">
-            <img src="/assets/events/event3.jpg" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Motoverse</p>
-              <p class="event-card-desc">
-                Opportunity for automakers to showcase their latest models,for
-                car enthusiasts to see them in person.
-              </p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="event-card">
-            <img src="/assets/events/event4.jpg" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Laser Tag</p>
-              <p class="event-card-desc">
-                Laser tag is a recreational shooting game where players use
-                handheld infrared-emitting devices.
-              </p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="event-card">
-            <img src="/assets/events/event4.jpg" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Laser Tag</p>
-              <p class="event-card-desc">
-                Laser tag is a recreational shooting game where players use
-                handheld infrared-emitting devices.
-              </p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="event-card">
-            <img src="/assets/events/event4.jpg" />
-            <div class="event-card-body">
-              <p class="event-card-heading">Laser Tag</p>
-              <p class="event-card-desc">
-                Laser tag is a recreational shooting game where players use
-                handheld infrared-emitting devices.
-              </p>
-              <ul class="event-stats">
-                <li>
-                  <i class="fa-solid fa-calendar-days"></i
-                  ><span>12/03/2023</span>
-                </li>
-                <li><i class="fa-solid fa-clock"></i><span>12:00pm</span></li>
-                <li>
-                  <i class="fa-solid fa-location-dot"></i><span>Main Hall</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </section>
     </main>

@@ -21,7 +21,7 @@
     </header>
     <div class="wrapper">
       <div class="title">Create Event</div>
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         <div class="form">
           <div class="inputfield">
             <label>Event Name</label>
@@ -46,7 +46,7 @@
           </div>
           <div class="inputfield">
             <label>Event Banner</label>
-            <input type="file" class="input" />
+            <input name="wallpaper" type="file" class="input" />
           </div>
           <div class="inputfield">
             <label>Event Description</label>

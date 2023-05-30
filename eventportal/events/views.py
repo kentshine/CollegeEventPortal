@@ -2,6 +2,7 @@ from flask import render_template, url_for, flash, redirect, request, Blueprint,
 from flask_login import current_user,login_required
 from eventportal import db
 from eventportal.models import Event
+from eventportal.events.picture_handler import add_wallpaper
 
 events = Blueprint('events',__name__)
 
@@ -16,7 +17,15 @@ def create():
         description = request.form.get('description')
 
 
+
         event = Event(user_id=current_user.id,title=title,location=location,event_date=event_date,event_time=event_time,description=description)
+
+        if request.files['wallpaper']:
+            wallpaper = request.files['wallpaper']
+            event_name = title
+            pic = add_wallpaper(wallpaper,event_name)
+            event.wallpaper = pic
+
         db.session.add(event)
         db.session.commit()
         print(event)
@@ -30,9 +39,14 @@ def create():
 @events.route("/<int:event_id>")
 def event(event_id):
     event = Event.query.get_or_404(event_id)
-    return render_template("eventpage.html",title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description)
+    event_wallpaper = url_for('static',filename='event_wallpapers//'+event.wallpaper)
+    return render_template("eventpage.html",title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description,event_wallpaper=event_wallpaper)
 
-
+@events.route("/event-list")
+def event_listview():
+    page = request.args.get('page',1,type=int)
+    events = Event.query.paginate(page=page,per_page=10)
+    return render_template("MorePages.html",events=events)
 
 @events.route("/<int:event_id>/update",methods=['GET','POST'])
 def update(event_id):
