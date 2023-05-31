@@ -117,7 +117,7 @@
         <div class="event-card-overview">
           {% for event in events.items %}
           <div class="event-card">
-            <img src="{{ url_for('static', filename='/img/events/carnival.jpg') }}" alt="event logo" />
+            <img src="{{ url_for('static',filename='event_wallpapers/'+ event.wallpaper) }}" alt="event logo" />
             <div class="event-card-body">
              <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
               <ul class="event-stats">
@@ -137,7 +137,7 @@
           {% endfor %}
         </div>
         <div class="event-types-overview">
-          <a href="your-link-here">More events -></a>
+          <a href="{{ url_for('events.event_listview') }}">More events -></a>
         </div>
       </section>
 

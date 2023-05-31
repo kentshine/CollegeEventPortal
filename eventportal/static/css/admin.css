@@ -498,7 +498,7 @@ small {
 }
 
 .signup-img {
-  background-image: url(/assets/signupimg.jpg);
+  background-image: url("/static/img/signupimg.jpg");
   background-size: cover;
   border-radius: 10px 0 0 10px;
   opacity: 0.75;

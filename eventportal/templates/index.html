@@ -109,7 +109,7 @@
           {% for event in events.items %}
           <div class="event-card">
             <img
-              src="{{ url_for('static', filename='/img/events/carnival.jpg') }}"
+              src="{{ url_for('static',filename='event_wallpapers/'+ event.wallpaper) }}"
               alt="carnival image"
             />
             <div class="event-card-body">
@@ -132,7 +132,7 @@
           {% endfor %}
         </div>
         <div class="event-types-overview">
-          <span>More events -></span>
+          <span><a href="{{ url_for('events.event_listview') }}">More events -></a></span>
         </div>
       </section>
       <section class="section-feedback" id="feedback">
