@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, request, Blueprint, abort
+from flask import render_template, url_for, redirect, request, Blueprint
 from flask_login import current_user,login_required
 from eventportal import db
 from eventportal.models import Event
