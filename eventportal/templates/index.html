@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -140,7 +142,7 @@
                   >{{ event.title }}</a
                 >
               </p>
-              <p class="event-card-desc">{{ event.description }}</p>
+              <p class="event-card-desc">{{ event.description[:50] }} ... </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -404,3 +406,4 @@
     ></script>
   </body>
 </html>
+{% endblock %}

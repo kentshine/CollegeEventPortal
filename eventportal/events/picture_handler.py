@@ -11,7 +11,7 @@ def add_wallpaper(pic_upload,event_name):
 
     filepath = os.path.join(current_app.root_path,'static\event_wallpapers',storage_filename)
 
-    output_size = (700,700)
+    output_size = (300,300)
 
     pic = Image.open(pic_upload)
     pic.thumbnail(output_size)

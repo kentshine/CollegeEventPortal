@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -53,7 +54,6 @@
             <textarea
               name="description"
               class="textarea"
-              maxlength="50"
             ></textarea>
           </div>
           <div class="inputfield">
@@ -64,3 +64,6 @@
     </div>
   </body>
 </html>
+{% endblock %}
+
+

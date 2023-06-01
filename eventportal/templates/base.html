@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/nav_queries.css') }}">
+</head>
 <header class="header">
   <img
     src="{{ url_for('static', filename='img/final.png') }}"
@@ -43,6 +47,9 @@
   </button>
 </header>
 
+{% block content %}
+
+{% endblock %}
 <!-- JS -->
 
 <script>
