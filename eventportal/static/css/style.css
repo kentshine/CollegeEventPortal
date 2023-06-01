@@ -53,7 +53,7 @@ small {
 }
 
 /* HEADER */
-.logo {
+/* .logo {
   height: 6.5rem;
 }
 
@@ -94,10 +94,10 @@ small {
 .header .solid-btn i {
   color: #fafafa;
   margin-right: 0.2rem;
-}
+} */
 
 /* HEADER STICKY */
-.sticky .header {
+/* .sticky .header {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -112,10 +112,10 @@ small {
 
 .sticky .section-hero {
   margin-top: 8rem;
-}
+} */
 
 /* MOBILE NAV */
-.mobile-nav-btn {
+/* .mobile-nav-btn {
   border: none;
   background: none;
   cursor: pointer;
@@ -132,7 +132,7 @@ small {
 .mobile-order,
 .mobile-close i {
   display: none;
-}
+} */
 
 /* HERO */
 .section-hero {

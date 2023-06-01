@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/hero/logo.png') }}"/>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/hero/logo.png') }}"
+    />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +21,16 @@
     />
 
     <!-- External CSS -->
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/queries.css') }}" rel="stylesheet" type="text/css" />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{{ url_for('static', filename='css/queries.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <!-- Font Awesome -->
     <script
@@ -30,7 +42,7 @@
   </head>
 
   <body>
-    <header class="header">
+    <!-- <header class="header">
       <img src="{{ url_for('static', filename='img/final.png') }}" class="logo" alt="logo of jyothi" />
       <nav class="main-nav">
         <ul class="main-nav-list">
@@ -63,7 +75,7 @@
           ><i class="fa-solid fa-xmark mobile-close"></i
         ></span>
       </button>
-    </header>
+    </header> -->
     <main>
       <section class="section-hero">
         <div class="hero-group">
@@ -77,17 +89,21 @@
             </p>
             <div class="hero-marquee">
               <ul class="event-types-list marquee-animation">
-                <li class="paleo">
-                  Messi is going to al-hilal !!
-                </li>
+                <li class="paleo">Messi is going to al-hilal !!</li>
               </ul>
             </div>
           </div>
           <div class="hero-img-wrapper">
-            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi"/>
+            <img
+              src="{{ url_for('static', filename='img/hero/logo.png') }}"
+              alt="logo jyothi"
+            />
           </div>
           <div class="mobile-hero-img">
-            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi"/>
+            <img
+              src="{{ url_for('static', filename='img/hero/logo.png') }}"
+              alt="logo jyothi"
+            />
           </div>
         </div>
       </section>
@@ -96,8 +112,14 @@
           src="{{ url_for('static', filename='img/credit/1_kHGezmjRSsinyHaK1WLMOw-1 (1) (2).png') }}"
           alt="forbes logo"
         />
-        <img src="{{ url_for('static', filename='/img/credit/nba.png') }}" alt="nba logo"/>
-        <img src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}" alt="ariia logo"/>
+        <img
+          src="{{ url_for('static', filename='/img/credit/nba.png') }}"
+          alt="nba logo"
+        />
+        <img
+          src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}"
+          alt="ariia logo"
+        />
       </section>
 
       <section class="section-events" id="events">
@@ -113,18 +135,24 @@
               alt="carnival image"
             />
             <div class="event-card-body">
-              <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
-              <p class="event-card-desc">
-                {{ event.description }}
+              <p class="event-card-heading">
+                <a href="{{ url_for('events.event',event_id=event.id) }}"
+                  >{{ event.title }}</a
+                >
               </p>
+              <p class="event-card-desc">{{ event.description }}</p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
                   ><span>{{ event.event_date }}</span>
                 </li>
-                <li><i class="fa-solid fa-clock"></i><span>{{ event.event_time }}</span></li>
                 <li>
-                  <i class="fa-solid fa-location-dot"></i><span>{{ event.location }}</span>
+                  <i class="fa-solid fa-clock"></i
+                  ><span>{{ event.event_time }}</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i
+                  ><span>{{ event.location }}</span>
                 </li>
               </ul>
             </div>
@@ -132,7 +160,11 @@
           {% endfor %}
         </div>
         <div class="event-types-overview">
-          <span><a href="{{ url_for('events.event_listview') }}">More events -></a></span>
+          <span
+            ><a href="{{ url_for('events.event_listview') }}"
+              >More events -></a
+            ></span
+          >
         </div>
       </section>
       <section class="section-feedback" id="feedback">
@@ -146,7 +178,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demp profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -160,7 +195,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demp profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -174,7 +212,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demp profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -188,7 +229,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demp profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -202,7 +246,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demp profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -216,7 +263,10 @@
               </p>
               <div class="feedback-credits">
                 <div>
-                  <img src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}" alt="demp profile"/>
+                  <img
+                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
+                    alt="demp profile"
+                  />
                 </div>
                 <div>
                   <p>Walter White<br /><span>CSE</span></p>
@@ -229,9 +279,7 @@
       <section class="section-signup" id="signup">
         <h1 class="subheading">[Sign Up]</h1>
         <div class="signup-box">
-          <div class="signup-img">
-
-          </div>
+          <div class="signup-img"></div>
 
           <div class="signup-form">
             <h1 class="signup-heading">
@@ -274,7 +322,11 @@
       <div class="section-footer" id="footer">
         <div class="logo-col">
           <a href="#" class="footer-logo">
-            <img src="{{ url_for('static', filename='/img/final.png') }}" class="logo" alt="Jyothi logo" />
+            <img
+              src="{{ url_for('static', filename='/img/final.png') }}"
+              class="logo"
+              alt="Jyothi logo"
+            />
           </a>
 
           <ul class="social-links">
@@ -346,6 +398,9 @@
       </div>
     </footer>
 
-    <script defer src="{{ url_for('static',filename='js/script.js') }}"></script>
+    <script
+      defer
+      src="{{ url_for('static',filename='js/script.js') }}"
+    ></script>
   </body>
 </html>

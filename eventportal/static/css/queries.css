@@ -56,14 +56,14 @@
   }
 
   /* HEADER & NAV */
-  .main-nav-list {
+  /* .main-nav-list {
     gap: 1rem;
     padding: 1rem 2rem;
   }
 
   .header .solid-btn {
     padding: 1rem 3rem;
-  }
+  } */
 
   /* HERO */
   .hero-marquee {
@@ -87,7 +87,7 @@
   }
 
   /* MOBILE NAV */
-  .mobile-nav-btn {
+  /* .mobile-nav-btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,10 +127,10 @@
     font-size: 2.4rem;
     padding: 1rem 3rem;
     border-radius: 50px;
-  }
+  } */
 
   /* HAMBURGER NAV OPEN */
-  .nav-open .main-nav {
+  /* .nav-open .main-nav {
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
@@ -153,7 +153,7 @@
     display: block;
     margin: 3rem auto;
     font-size: 2.4rem;
-  }
+  } */
 
   /* EVENT CARDS */
   .event-card-overview {

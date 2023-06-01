@@ -23,14 +23,22 @@
     />
 
     <!------------------- External CSS ---------------------->
-    <link href="{{ url_for('static', filename='css/admin.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/admin_queries.css') }}s" rel="stylesheet" type="text/css" />
+    <link
+      href="{{ url_for('static', filename='css/admin.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{{ url_for('static', filename='css/admin_queries.css') }}s"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <title>CollegeEventPortal</title>
   </head>
   <!---------------------- NAV ----------------------->
   <body>
-    <header class="header">
+    <!-- <header class="header">
       <img src="{{ url_for('static', filename='img/final.png') }}" class="logo" alt="logo of jyothi" />
       <nav class="main-nav">
         <ul class="main-nav-list">
@@ -65,7 +73,7 @@
           ><i class="fa-solid fa-xmark mobile-close"></i
         ></span>
       </button>
-    </header>
+    </header> -->
     <main>
       <section class="section-hero">
         <div class="hero-group">
@@ -91,10 +99,16 @@
             </div> -->
           </div>
           <div class="hero-img-wrapper">
-            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi" />
+            <img
+              src="{{ url_for('static', filename='img/hero/logo.png') }}"
+              alt="logo jyothi"
+            />
           </div>
           <div class="mobile-hero-img">
-            <img src="{{ url_for('static', filename='img/hero/logo.png') }}" alt="logo jyothi" />
+            <img
+              src="{{ url_for('static', filename='img/hero/logo.png') }}"
+              alt="logo jyothi"
+            />
           </div>
         </div>
       </section>
@@ -103,8 +117,14 @@
           src="{{ url_for('static', filename='img/credit/1_kHGezmjRSsinyHaK1WLMOw-1 (1) (2).png') }}"
           alt="feartured logo"
         />
-        <img src="{{ url_for('static', filename='/img/credit/nba.png') }}" alt="feartured logo" />
-        <img src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}" alt="feartured logo" />
+        <img
+          src="{{ url_for('static', filename='/img/credit/nba.png') }}"
+          alt="feartured logo"
+        />
+        <img
+          src="{{ url_for('static', filename='/img/credit/ariia_logo.png') }}"
+          alt="feartured logo"
+        />
       </section>
 
       <!------------------------- EVENT LISTED------------------------------>
@@ -117,21 +137,40 @@
         <div class="event-card-overview">
           {% for event in events.items %}
           <div class="event-card">
-            <img src="{{ url_for('static',filename='event_wallpapers/'+ event.wallpaper) }}" alt="event logo" />
+            <img
+              src="{{ url_for('static',filename='event_wallpapers/'+ event.wallpaper) }}"
+              alt="event logo"
+            />
             <div class="event-card-body">
-             <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
+              <p class="event-card-heading">
+                <a href="{{ url_for('events.event',event_id=event.id) }}"
+                  >{{ event.title }}</a
+                >
+              </p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
                   ><span>{{ event.event_date }}</span>
                 </li>
-                <li><i class="fa-solid fa-clock"></i><span>{{ event.event_time }}</span></li>
                 <li>
-                  <i class="fa-solid fa-location-dot"></i><span>{{ event.location }}</span>
+                  <i class="fa-solid fa-clock"></i
+                  ><span>{{ event.event_time }}</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i
+                  ><span>{{ event.location }}</span>
                 </li>
               </ul>
-              <a href="{{ url_for('events.update',event_id=event.id) }}" class="evebtn solid-evebtn">Edit</a>
-              <a href="{{ url_for('events.delete',event_id=event.id) }}" class="evebtn outline-evebtn">Delete</a>
+              <a
+                href="{{ url_for('events.update',event_id=event.id) }}"
+                class="evebtn solid-evebtn"
+                >Edit</a
+              >
+              <a
+                href="{{ url_for('events.delete',event_id=event.id) }}"
+                class="evebtn outline-evebtn"
+                >Delete</a
+              >
             </div>
           </div>
           {% endfor %}
@@ -303,7 +342,11 @@
       <div class="section-footer" id="footer">
         <div class="logo-col">
           <a href="#" class="footer-logo">
-            <img src="{{ url_for('static', filename='/img/final.png') }}" class="logo" alt="Jyothi logo" />
+            <img
+              src="{{ url_for('static', filename='/img/final.png') }}"
+              class="logo"
+              alt="Jyothi logo"
+            />
           </a>
 
           <ul class="social-links">
@@ -375,6 +418,9 @@
       </div>
     </footer>
 
-    <script defer src="{{ url_for('static',filename='js/script.js') }}"></script>
+    <script
+      defer
+      src="{{ url_for('static',filename='js/script.js') }}"
+    ></script>
   </body>
 </html>

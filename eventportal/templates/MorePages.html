@@ -17,8 +17,16 @@
     />
 
     <!-- External CSS -->
-    <link href="{{ url_for('static',filename='css/MorePages-queries.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static',filename='css/MorePagres-style.css') }}" rel="stylesheet" type="text/css" />
+    <link
+      href="{{ url_for('static',filename='css/MorePages-queries.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{{ url_for('static',filename='css/MorePagres-style.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <!-- Font Awesome -->
     <script
@@ -30,9 +38,9 @@
   </head>
 
   <body>
-    <header class="header">
+    <!-- <header class="header">
       <img src="{{ url_for('static',filename='img/final.png') }}" class="logo" alt="logo of jyothi" />
-    </header>
+    </header> -->
 
     <main>
       <section class="section-events">
@@ -40,20 +48,28 @@
         <div class="event-card-overview">
           {% for event in events.items %}
           <div class="event-card">
-            <img src="{{ url_for('static',filename='event_wallpapers//' + event.wallpaper) }}" />
+            <img
+              src="{{ url_for('static',filename='event_wallpapers//' + event.wallpaper) }}"
+            />
             <div class="event-card-body">
-              <p class="event-card-heading"><a href="{{ url_for('events.event',event_id=event.id) }}">{{ event.title }}</a></p>
-              <p class="event-card-desc">
-                {{ event.description }}
+              <p class="event-card-heading">
+                <a href="{{ url_for('events.event',event_id=event.id) }}"
+                  >{{ event.title }}</a
+                >
               </p>
+              <p class="event-card-desc">{{ event.description }}</p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
                   ><span>{{event.event_date}}</span>
                 </li>
-                <li><i class="fa-solid fa-clock"></i><span>{{event.event_time}}</span></li>
                 <li>
-                  <i class="fa-solid fa-location-dot"></i><span>{{event.location}}</span>
+                  <i class="fa-solid fa-clock"></i
+                  ><span>{{event.event_time}}</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i
+                  ><span>{{event.location}}</span>
                 </li>
               </ul>
             </div>
