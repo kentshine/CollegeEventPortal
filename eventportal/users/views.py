@@ -1,8 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
-from flask_login import login_user, current_user, logout_user, login_required
+from flask_login import login_user
 from eventportal import db
-from werkzeug.security import generate_password_hash,check_password_hash
-from eventportal.users.forms import RegistrationForm, LoginForm
+from eventportal.users.forms import LoginForm
 from eventportal.models import User
 
 users = Blueprint('users', __name__)
