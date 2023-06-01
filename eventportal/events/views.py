@@ -58,6 +58,7 @@ def update(event_id):
         event_date = request.form.get('date')
         event_time = request.form.get('time')
         description = request.form.get('description')
+        db.session.commit()
         return redirect(url_for('events.event',event_id=event_id))
 
     return render_template('create.html',title='Update')

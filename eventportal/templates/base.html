@@ -1,0 +1,86 @@
+<head>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/nav_queries.css') }}">
+</head>
+<header class="header">
+  <img
+    src="{{ url_for('static', filename='img/final.png') }}"
+    class="logo"
+    alt="logo of jyothi"
+  />
+  <nav class="main-nav">
+    <ul class="main-nav-list">
+      <li>
+        <a href="#events" class="nav-link">Events</a>
+      </li>
+      <li>
+        <a href="#feedback" class="nav-link">Feedback</a>
+      </li>
+      <li>
+        <a href="#footer" class="nav-link">Contact Us</a>
+      </li>
+      <li>
+        <a href="https://www.jecc.ac.in/" class="nav-link">About</a>
+      </li>
+    </ul>
+    <a
+      href="{{ url_for('events.create') }}"
+      class="btn solid-btn mobile-order nav-link"
+      ><i class="fa fa-plus-circle"> </i>Create event</a
+    >
+  </nav>
+  <div class="">
+    <a
+      href="{{ url_for('events.create') }}"
+      class="btn solid-btn desktop-order nav-link"
+      ><i class="fa fa-plus-circle"></i> Create Event</a
+    >
+  </div>
+
+  <button class="mobile-nav-btn">
+    <span class="mobile-open">
+      <i class="fa-solid fa-bars mobile-open"></i>
+    </span>
+    <span class="mobile-close"
+      ><i class="fa-solid fa-xmark mobile-close"></i
+    ></span>
+  </button>
+</header>
+
+{% block content %}
+
+{% endblock %}
+<!-- JS -->
+
+<script>
+  /* HAMBURGER MENU */
+  const navButton = document.querySelector(".mobile-nav-btn");
+  const headerElement = document.querySelector(".header");
+
+  navButton.addEventListener("click", function () {
+    headerElement.classList.toggle("nav-open");
+  });
+
+  /* SMOOTH SCROLLING */
+  const links = document.querySelectorAll("a:not(.footer-link)");
+
+  /* STICKY NAVIGATION */
+  const heroElement = document.querySelector(".section-hero");
+  const navObserver = new IntersectionObserver(
+    function (entries) {
+      const ent = entries[0];
+      if (ent.isIntersecting === false) {
+        document.body.classList.add("sticky");
+      } else {
+        document.body.classList.remove("sticky");
+      }
+    },
+    {
+      root: null,
+      threshold: 0,
+      rootMargin: "-80px",
+    }
+  );
+
+  navObserver.observe(heroElement);
+</script>
