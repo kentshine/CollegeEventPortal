@@ -15,138 +15,193 @@
     <title>EventPage</title>
     <style>
       * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body {
-  font-family: "Inter", sans-serif;
-  color: #343a40;
-}
+      body {
+        font-family: "Inter", sans-serif;
+        color: #343a40;
+      }
 
-.container {
-  width: 960px;
-  margin: 0 auto;
-}
+      .container {
+        width: 960px;
+        margin: 0 auto;
+      }
 
-header,
-section {
-  margin-bottom: 96px;
-}
+      header,
+      section {
+        margin-bottom: 96px;
+      }
 
-h2 {
-  margin-bottom: 48px;
-  font-size: 36px;
-  letter-spacing: -0.5px;
-  /* 24 / 30 / 36 */
-}
+      h2 {
+        margin-bottom: 48px;
+        font-size: 36px;
+        letter-spacing: -0.5px;
+        /* 24 / 30 / 36 */
+      }
 
-.grid-3-cols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 80px;
-  margin-left: 60px;
-}
+      .grid-3-cols {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 10px;
+        align-self: center;
+        text-align: center;
+      }
 
-.btn:link,
-.btn:visited {
-  background-color: #6ba3e7;
-  color: #ffffff;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 500;
+      .btn:link,
+      .btn:visited {
+        background-color: #6ba3e7;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 500;
 
-  display: inline-block;
-  border-radius: 50px;
-}
+        display: inline-block;
+        border-radius: 50px;
+      }
 
-.btn:hover,
-.btn:active {
-  background-color: #6ba3e7;
-}
+      .btn:hover,
+      .btn:active {
+        background-color: #6ba3e7;
+      }
 
-.btn--big {
-  font-size: 15px;
-  padding: 20px 22px;
-  margin-left: 355px;
-  text-transform: lowercase;
-}
+      .btn--big {
+        font-size: 18px;
+        display: flex;
+        padding: 13px 30px;
+        border: 3px;
+        border-radius: 9px;
+        background-color: #6ba3e7;
+        color: rgb(247, 247, 247);
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        margin: 0 auto;
+        cursor: pointer;
+      }
 
-img {
-  border-radius: 12px;
-}
+      img {
+        border-radius: 12px;
+      }
 
-/* HEADER */
-header {
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 64px;
-}
+      /* HEADER */
+      header {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 64px;
+      }
 
-.header-text-box {
-  align-self: center;
-}
+      .header-text-box {
+        align-self: center;
+        text-align: center;
+      }
 
-h1 {
-  margin-bottom: 32px;
-  font-size: 44px;
-  line-height: 1.1;
-  letter-spacing: -1px;
-  /* 44 / 52 / 62 */
+      h1 {
+        margin-bottom: 32px;
+        font-size: 44px;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        /* 44 / 52 / 62 */
 
-  /* text-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); */
-}
+        /* text-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); */
+      }
 
-.header-text {
-  margin-bottom: 24px;
-  font-size: 18px;
-  line-height: 1.7;
-}
+      .header-text {
+        margin-top: 17px;
+        margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 1.7;
+      }
 
-img {
-  width: 50%;
-  margin-left: 200px;
-  margin-bottom: 20px;
-}
+      img {
+        width: 50%;
+        align-self: center;
+        text-align: center;
+      }
 
-/* FEATURES */
-.schedule-icon {
-  stroke: #818181;
-  width: 32px;
-  height: 32px;
-  margin-bottom: 24px;
-}
+      /* FEATURES */
+      .schedule-icon {
+        stroke: #818181;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 24px;
+      }
 
-.schedule {
-  margin-bottom: 40px;
-  font-size: 20px;
-}
+      .schedule {
+        margin-bottom: 40px;
+        font-size: 20px;
+      }
 
-@media only screen and (max-width: 700em) {
-  /* GENERAL */
-  .body {
-    font-size: 3.8rem;
-  }
-}
+      .popup {
+        width: 400px;
+        background: #ffffff;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden;
+        transition: transform 0.4s, top 0.4s;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+      }
 
-@media only screen and (max-width: 58em) {
-  /* GENERAL */
-  html,
-  body,
-  img {
-    font-size: 60%;
-    width: 20rem;
-    padding-left: 1rem;
-  }
+      .open-popup {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
 
-  h1 {
-    font-size: 3rem;
-    margin-left: 2rem;
-    float: none;
-    width: 98%;
-    padding: 1%;
-  }
-}
+      .popup h2 {
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0 10px;
+      }
+
+      .popup button {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: #747474;
+        color: #fff;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      @media only screen and (max-width: 700em) {
+        /* GENERAL */
+        .body {
+          font-size: 3.8rem;
+        }
+      }
+
+      @media only screen and (max-width: 58em) {
+        /* GENERAL */
+        html,
+        body,
+        img {
+          font-size: 60%;
+          width: 20rem;
+          padding-left: 1rem;
+        }
+
+        h1 {
+          font-size: 3rem;
+          margin-left: 2rem;
+          float: none;
+          width: 98%;
+          padding: 1%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -156,9 +211,7 @@ img {
           <h1>{{ title }}</h1>
           <img src="{{ event_wallpaper }}" alt="Photo" />
 
-          <p class="header-text">
-            {{ description }}
-          </p>
+          <p class="header-text">{{ description }}</p>
           <h2>Event Schedule</h2>
           <div class="grid-3-cols">
             <div>
@@ -228,9 +281,26 @@ img {
               </p>
             </div>
           </div>
-          <a class="btn btn--big" href="#">Register Event</a>
+          <a class="btn btn--big" onclick="openPopup()">Register Event</a>
         </div>
       </header>
     </div>
+    <div class="popup" id="popup">
+      <h2>Thank You!!</h2>
+      <p>Registered Successfully</p>
+      <button type="button" onclick="closePopup()">OK</button>
+    </div>
   </body>
 </html>
+
+<script>
+  let popup = document.getElementById("popup");
+
+  function openPopup() {
+    popup.classList.add("open-popup");
+  }
+
+  function closePopup() {
+    popup.classList.remove("open-popup");
+  }
+</script>
