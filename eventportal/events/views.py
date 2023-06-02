@@ -1,8 +1,9 @@
-from flask import render_template, url_for, redirect, request, Blueprint
+from flask import render_template, url_for, redirect, request, Blueprint,flash
 from flask_login import current_user,login_required
 from eventportal import db
-from eventportal.models import Event
+from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper
+from eventportal.events.event_registration import add_user
 
 events = Blueprint('events',__name__)
 
@@ -36,11 +37,32 @@ def create():
 
     return render_template('create.html')
 
-@events.route("/<int:event_id>")
+@events.route("/<int:event_id>",methods=["GET","POST"])
 def event(event_id):
     event = Event.query.get_or_404(event_id)
     event_wallpaper = url_for('static',filename='event_wallpapers//'+event.wallpaper)
-    return render_template("eventpage.html",title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description,event_wallpaper=event_wallpaper)
+    if request.method == "POST":
+        user = User.query.filter_by(id=current_user.id).first()
+        registered_before = False
+
+        if not current_user.is_authenticated:
+            flash("You are not logged In !!")
+        else:
+            for student in event.coming:
+                if student.email == user.email:
+                    registered_before = True
+            if not registered_before:
+                event.coming.append(user)
+                db.session.commit()
+                add_user(user.id,event.id)
+                redirect(url_for('core.index'))
+                flash("Thank You For Registering !!")
+                print(user.email , " has been registered to " , event.title)
+            elif registered_before:
+                flash("You are already registered !!")
+                print(user.email, " has been already registered to ", event.title)
+                redirect(url_for('events.event_listview'))
+    return render_template("eventpage.html",id=event.id,title=event.title,location=event.location,event_date=event.event_date,event_time=event.event_time,description=event.description,event_wallpaper=event_wallpaper)
 
 @events.route("/event-list")
 def event_listview():

@@ -9,6 +9,11 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 
+registered = db.Table('registered',
+                      db.Column('user_id',db.Integer,db.ForeignKey('users.id'),primary_key=True),
+                      db.Column('event_id',db.Integer,db.ForeignKey('event.id'),primary_key=True)
+                      )
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -16,6 +21,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     event = db.relationship('Event', backref='creator', lazy=True)
+    registered_events = db.relationship('Event',secondary=registered,backref=db.backref('coming',lazy='dynamic'))
 
 
     def __init__(self, email, password):
@@ -49,6 +55,7 @@ class Event(db.Model):
         self.event_time = event_time
         self.location = location
         self.description = description
+
 
 
 

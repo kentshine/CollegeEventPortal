@@ -282,26 +282,23 @@
               </p>
             </div>
           </div>
-          <a class="btn btn--big" onclick="openPopup()">Register Event</a>
+          <form method="POST">
+            <input type='submit' class="btn btn--big" value="Register"/>
+          </form>
+
         </div>
       </header>
     </div>
-    <div class="popup" id="popup">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+    {% for message in messages %}
+      <div class="popup open-popup" id="popup">
       <h2>Thank You!!</h2>
-      <p>Registered Successfully</p>
-      <button type="button" onclick="closePopup()">OK</button>
+      <p>{{ message }}</p>
+      <button type="button"><a href="{{ url_for('events.event_listview') }}">OK</a></button>
     </div>
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
   </body>
 </html>
-
-<script>
-  let popup = document.getElementById("popup");
-
-  function openPopup() {
-    popup.classList.add("open-popup");
-  }
-
-  function closePopup() {
-    popup.classList.remove("open-popup");
-  }
-</script>

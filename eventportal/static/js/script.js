@@ -51,4 +51,9 @@ const scrollObserver = new IntersectionObserver((entries) => {
   });
 });
 
+function removeFlash() {
+      const element = document.getElementById('popup');
+      element.remove();
+}
+
 appShots.forEach((el) => scrollObserver.observe(el));

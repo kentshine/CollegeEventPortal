@@ -15,6 +15,8 @@ def admin():
     events = Event.query.order_by(Event.event_date.desc()).paginate(page=page,per_page=10)
     return render_template('admin.html',events=events)
 
+
+
 @core.route('/info')
 def info():
     return render_template('info.html')
