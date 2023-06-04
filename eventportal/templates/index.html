@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -142,7 +141,7 @@
                   >{{ event.title }}</a
                 >
               </p>
-              <p class="event-card-desc">{{ event.description[:50] }} ... </p>
+              <p class="event-card-desc">{{ event.description[:50] }} ...</p>
               <ul class="event-stats">
                 <li>
                   <i class="fa-solid fa-calendar-days"></i
@@ -169,115 +168,75 @@
           >
         </div>
       </section>
-      <section class="section-feedback" id="feedback">
-        <div class="feedback">
-          <h1 class="subheading heading-left">[feedback]</h1>
-          <div class="feedback-details">
-            <div class="feedback-card">
-              <p class="feedback-text">
-                "I had a great time at the cultural festival. The music and
-                dance performances were amazing, and the food was delicious."
-              </p>
-              <div class="feedback-credits">
-                <div>
-                  <img
-                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
-                    alt="demp profile"
-                  />
-                </div>
-                <div>
-                  <p>Walter White<br /><span>CSE</span></p>
-                </div>
-              </div>
-            </div>
-            <div class="feedback-card">
-              <p class="feedback-text">
-                "I had a great time at the cultural festival. The music and
-                dance performances were amazing, and the food was delicious."
-              </p>
-              <div class="feedback-credits">
-                <div>
-                  <img
-                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
-                    alt="demp profile"
-                  />
-                </div>
-                <div>
-                  <p>Walter White<br /><span>CSE</span></p>
-                </div>
-              </div>
-            </div>
-            <div class="feedback-card">
-              <p class="feedback-text">
-                "I had a great time at the cultural festival. The music and
-                dance performances were amazing, and the food was delicious."
-              </p>
-              <div class="feedback-credits">
-                <div>
-                  <img
-                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
-                    alt="demp profile"
-                  />
-                </div>
-                <div>
-                  <p>Walter White<br /><span>CSE</span></p>
-                </div>
-              </div>
-            </div>
-            <div class="feedback-card">
-              <p class="feedback-text">
-                "I had a great time at the cultural festival. The music and
-                dance performances were amazing, and the food was delicious."
-              </p>
-              <div class="feedback-credits">
-                <div>
-                  <img
-                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
-                    alt="demp profile"
-                  />
-                </div>
-                <div>
-                  <p>Walter White<br /><span>CSE</span></p>
-                </div>
-              </div>
-            </div>
-            <div class="feedback-card">
-              <p class="feedback-text">
-                "I had a great time at the cultural festival. The music and
-                dance performances were amazing, and the food was delicious."
-              </p>
-              <div class="feedback-credits">
-                <div>
-                  <img
-                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
-                    alt="demp profile"
-                  />
-                </div>
-                <div>
-                  <p>Walter White<br /><span>CSE</span></p>
-                </div>
-              </div>
-            </div>
-            <div class="feedback-card">
-              <p class="feedback-text">
-                "I had a great time at the cultural festival. The music and
-                dance performances were amazing, and the food was delicious."
-              </p>
-              <div class="feedback-credits">
-                <div>
-                  <img
-                    src="{{ url_for('static', filename='/img/user/istockphoto-610003972-612x612.jpg') }}"
-                    alt="demp profile"
-                  />
-                </div>
-                <div>
-                  <p>Walter White<br /><span>CSE</span></p>
-                </div>
-              </div>
+
+      <section class="section" id="section--3">
+        <h1 class="subheading_feed">[Feedback]</h1>
+        <div class="slider">
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header">
+                The last step to becoming a complete minimalist
+              </h5>
+              <blockquote class="testimonial__text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Accusantium quas quisquam non? Quas voluptate nulla minima
+                deleniti optio ullam nesciunt, numquam corporis et asperiores
+                laboriosam sunt, praesentium suscipit blanditiis. Necessitatibus
+                id alias reiciendis, perferendis facere pariatur dolore veniam
+                autem esse non voluptatem saepe provident nihil molestiae.
+              </blockquote>
+              <address class="testimonial__author">
+                <h6 class="testimonial__name">Aarav Lynn</h6>
+                <p class="testimonial__location">San Francisco, USA</p>
+              </address>
             </div>
           </div>
+
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header">
+                The last step to becoming a complete minimalist
+              </h5>
+              <blockquote class="testimonial__text">
+                Quisquam itaque deserunt ullam, quia ea repellendus provident,
+                ducimus neque ipsam modi voluptatibus doloremque, corrupti
+                laborum. Incidunt numquam perferendis veritatis neque
+                repellendus. Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Illo deserunt exercitationem deleniti.
+              </blockquote>
+              <address class="testimonial__author">
+                <h6 class="testimonial__name">Miyah Miles</h6>
+                <p class="testimonial__location">London, UK</p>
+              </address>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="testimonial">
+              <h5 class="testimonial__header">
+                The last step to becoming a complete minimalist
+              </h5>
+              <blockquote class="testimonial__text">
+                Debitis, nihil sit minus suscipit magni aperiam vel tenetur
+                incidunt commodi architecto numquam omnis nulla autem,
+                necessitatibus blanditiis modi similique quidem. Odio aliquam
+                culpa dicta beatae quod maiores ipsa minus consequatur error
+                sunt, deleniti saepe aliquid quos inventore sequi.
+                Necessitatibus id alias reiciendis, perferendis facere.
+              </blockquote>
+              <address class="testimonial__author">
+                <h6 class="testimonial__name">Francisco Gomes</h6>
+                <p class="testimonial__location">Lisbon, Portugal</p>
+              </address>
+            </div>
+          </div>
+
+          <button class="slider__btn slider__btn--left">&larr;</button>
+          <button class="slider__btn slider__btn--right">&rarr;</button>
+          <div class="dots"></div>
         </div>
       </section>
+
       <section class="section-signup" id="signup">
         <h1 class="subheading">[Sign Up]</h1>
         <div class="signup-box">
@@ -399,19 +358,15 @@
         </nav>
       </div>
     </footer>
-{% with messages = get_flashed_messages() %}
-      {% if messages %}
-    {% for message in messages %}
-      <div class="popup open-popup" id="popup">
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="popup open-popup" id="popup">
       <h2>Thank You!!</h2>
       <p>{{ message }}</p>
       <button type="button" onclick="removeFlash()">Ok</button>
     </div>
-    {% endfor %}
-  {% endif %}
-  {% endwith %}
-    <script
-      src="{{ url_for('static',filename='js/script.js') }}"></script>
+    {% endfor %} {% endif %} {% endwith %}
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
   </body>
 </html>
 {% endblock %}
