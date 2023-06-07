@@ -75,11 +75,17 @@ def update(event_id):
     event = Event.query.get_or_404(event_id)
 
     if request.method == "POST":
-        title = request.form.get('title')
-        location = request.form.get('location')
-        event_date = request.form.get('date')
-        event_time = request.form.get('time')
-        description = request.form.get('description')
+        event.title = request.form.get('title')
+        event.location = request.form.get('location')
+        event.event_date = request.form.get('date')
+        event.event_time = request.form.get('time')
+        event.description = request.form.get('description')
+        if request.files['wallpaper']:
+            wallpaper = request.files['wallpaper']
+            event_name = event.title
+            pic = add_wallpaper(wallpaper, event_name)
+            event.wallpaper = pic
+
         db.session.commit()
         return redirect(url_for('events.event',event_id=event_id))
 
