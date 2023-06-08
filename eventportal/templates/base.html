@@ -1,86 +1,175 @@
-<head>
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/nav.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/nav_queries.css') }}">
-</head>
-<header class="header">
-  <a href="{{ url_for('core.index') }}"><img
-    src="{{ url_for('static', filename='img/final.png') }}"
-    class="logo"
-    alt="logo of jyothi"
-  /></a>
-  <nav class="main-nav">
-    <ul class="main-nav-list">
-      <li>
-        <a href="#events" class="nav-link">Events</a>
-      </li>
-      <li>
-        <a href="#feedback" class="nav-link">Feedback</a>
-      </li>
-      <li>
-        <a href="#footer" class="nav-link">Contact Us</a>
-      </li>
-      <li>
-        <a href="https://www.jecc.ac.in/" class="nav-link">About</a>
-      </li>
-    </ul>
-    <a
-      href="{{ url_for('events.create') }}"
-      class="btn solid-btn mobile-order nav-link"
-      ><i class="fa fa-plus-circle"> </i>Create event</a
-    >
-  </nav>
-  <div class="">
-    <a
-      href="{{ url_for('events.create') }}"
-      class="btn solid-btn desktop-order nav-link"
-      ><i class="fa fa-plus-circle"></i> Create Event</a
-    >
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <button class="mobile-nav-btn">
-    <span class="mobile-open">
-      <i class="fa-solid fa-bars mobile-open"></i>
-    </span>
-    <span class="mobile-close"
-      ><i class="fa-solid fa-xmark mobile-close"></i
-    ></span>
-  </button>
-</header>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='img/hero/logo.png') }}"
+    />
 
-{% block content %}
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Text:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
 
-{% endblock %}
-<!-- JS -->
+    <!-- External CSS -->
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{{ url_for('static', filename='css/queries.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-<script>
-  /* HAMBURGER MENU */
-  const navButton = document.querySelector(".mobile-nav-btn");
-  const headerElement = document.querySelector(".header");
+    <!------------- Admin Head ------------->
+    <link
+      href="{{ url_for('static', filename='css/admin.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{{ url_for('static', filename='css/admin_queries.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-  navButton.addEventListener("click", function () {
-    headerElement.classList.toggle("nav-open");
-  });
+    <!------------ Create Page Head ---------->
+    <link
+      href="{{url_for('static',filename='css/create.css')}}"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-  /* SMOOTH SCROLLING */
-  const links = document.querySelectorAll("a:not(.footer-link)");
+    <!----------------Login --------------->
+    <link rel="stylesheet" href="signin-style.css" />
 
-  /* STICKY NAVIGATION */
-  const heroElement = document.querySelector(".section-hero");
-  const navObserver = new IntersectionObserver(
-    function (entries) {
-      const ent = entries[0];
-      if (ent.isIntersecting === false) {
-        document.body.classList.add("sticky");
-      } else {
-        document.body.classList.remove("sticky");
+    <!---------------More Pages ---------->
+    <link
+      href="{{ url_for('static',filename='css/MorePages-queries.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{{ url_for('static',filename='css/MorePagres-style.css') }}"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!---------------Register--------------->
+    <link rel="stylesheet" href="signup-style.css" />
+
+    <!---------------Event Page------------->
+    <link rel="stylesheet" href="eventpage.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/8b02daf965.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>CollegeEventPortal</title>
+  </head>
+
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/nav.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/nav_queries.css') }}"
+    />
+  </head>
+  <header class="header">
+    <a href="{{ url_for('core.index') }}"
+      ><img
+        src="{{ url_for('static', filename='img/final.png') }}"
+        class="logo"
+        alt="logo of jyothi"
+    /></a>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li>
+          <a href="#events" class="nav-link">Events</a>
+        </li>
+        <li>
+          <a href="#feedback" class="nav-link">Feedback</a>
+        </li>
+        <li>
+          <a href="#footer" class="nav-link">Contact Us</a>
+        </li>
+        <li>
+          <a href="https://www.jecc.ac.in/" class="nav-link">About</a>
+        </li>
+      </ul>
+      <a
+        href="{{ url_for('events.create') }}"
+        class="btn solid-btn mobile-order nav-link"
+        ><i class="fa fa-plus-circle"> </i>Create event</a
+      >
+    </nav>
+    <div class="">
+      <a
+        href="{{ url_for('events.create') }}"
+        class="btn solid-btn desktop-order nav-link"
+        ><i class="fa fa-plus-circle"></i> Create Event</a
+      >
+    </div>
+
+    <button class="mobile-nav-btn">
+      <span class="mobile-open">
+        <i class="fa-solid fa-bars mobile-open"></i>
+      </span>
+      <span class="mobile-close"
+        ><i class="fa-solid fa-xmark mobile-close"></i
+      ></span>
+    </button>
+  </header>
+
+  {% block content %} {% endblock %}
+  <!-- JS -->
+
+  <script>
+    /* HAMBURGER MENU */
+    const navButton = document.querySelector(".mobile-nav-btn");
+    const headerElement = document.querySelector(".header");
+
+    navButton.addEventListener("click", function () {
+      headerElement.classList.toggle("nav-open");
+    });
+
+    /* SMOOTH SCROLLING */
+    const links = document.querySelectorAll("a:not(.footer-link)");
+
+    /* STICKY NAVIGATION */
+    const heroElement = document.querySelector(".section-hero");
+    const navObserver = new IntersectionObserver(
+      function (entries) {
+        const ent = entries[0];
+        if (ent.isIntersecting === false) {
+          document.body.classList.add("sticky");
+        } else {
+          document.body.classList.remove("sticky");
+        }
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-80px",
       }
-    },
-    {
-      root: null,
-      threshold: 0,
-      rootMargin: "-80px",
-    }
-  );
+    );
 
-  navObserver.observe(heroElement);
-</script>
+    navObserver.observe(heroElement);
+  </script>
+</html>
