@@ -171,6 +171,12 @@ small {
   background: #77adf3;
 }
 
+.navbtnprofile {
+  color: #333;
+  font-size: 35px;
+  text-decoration: none;
+}
+
 /* HERO IMAGE */
 .hero-img-wrapper,
 .mobile-hero-img {
