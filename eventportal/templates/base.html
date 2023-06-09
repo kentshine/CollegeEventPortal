@@ -72,6 +72,12 @@
     <!---------------Event Page------------->
     <link rel="stylesheet" href="eventpage.css" />
 
+    <!---------------Base-------------------->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/base.css') }}"
+    />
+
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/8b02daf965.js"
@@ -81,20 +87,11 @@
     <title>CollegeEventPortal</title>
   </head>
 
-  <head>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static',filename='css/base.css') }}"
-    />
-  </head>
-  <header class="header">
-    <a href="{{ url_for('core.index') }}"
-      ><img
-        src="{{ url_for('static', filename='img/final.png') }}"
-        class="logo"
-        alt="logo of jyothi"
-    /></a>
-    <nav class="main-nav">
+  <body>
+    <header class="navheader">
+      <a href="{{ url_for('core.index') }}"
+      >
+      <img src="{{ url_for('static', filename='img/final.png') }}" class="navlogo" alt="logo of jyothi" />
       <ul class="main-nav-list">
         <li>
           <a href="#events" class="nav-link">Events</a>
@@ -109,44 +106,40 @@
           <a href="https://www.jecc.ac.in/" class="nav-link">About</a>
         </li>
       </ul>
-      <a
-        href="{{ url_for('events.create') }}"
-        class="btn solid-btn mobile-order nav-link"
-        ><i class="fa fa-plus-circle"> </i>Create event</a
-      >
-    </nav>
-    <div class="">
-      <a
-        href="{{ url_for('events.create') }}"
-        class="btn solid-btn desktop-order nav-link"
-        ><i class="fa fa-plus-circle"></i> Create Event</a
-      >
-    </div>
+      <nav class="main-nav">
+        <a href="#signup" class="navbtn solid-navbtn mobile-order nav-link"
+          ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
+        >
+        <a href="{{ url_for('events.create') }}" class="navbtn solid-navbtn desktop-order nav-link"
+          ><i class="fa fa-plus-circle" aria-hidden="true"></i> Create event</a
+        >
+        <a href="#signup" class="navbtn solid-navbtn desktop-order nav-link"
+          ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
+        >
+      </nav>
 
-    <button class="mobile-nav-btn">
-      <span class="mobile-open">
-        <i class="fa-solid fa-bars mobile-open"></i>
-      </span>
-      <span class="mobile-close"
-        ><i class="fa-solid fa-xmark mobile-close"></i
-      ></span>
-    </button>
-  </header>
+      <button class="mobile-nav-navbtn">
+        <span class="mobile-open">
+          <i class="fa-solid fa-bars mobile-open"></i>
+        </span>
+        <span class="mobile-close"
+          ><i class="fa-solid fa-xmark mobile-close"></i
+        ></span>
+      </button>
+    </header>
+  </body>
 
-  {% block content %} {% endblock %}
+    {% block content %} {% endblock %}
   <!-- JS -->
 
   <script>
     /* HAMBURGER MENU */
     const navButton = document.querySelector(".mobile-nav-btn");
-    const headerElement = document.querySelector(".header");
+    const headerElement = document.querySelector(".navheader");
 
     navButton.addEventListener("click", function () {
       headerElement.classList.toggle("nav-open");
     });
-
-    /* SMOOTH SCROLLING */
-    const links = document.querySelectorAll("a:not(.footer-link)");
 
     /* STICKY NAVIGATION */
     const heroElement = document.querySelector(".section-hero");

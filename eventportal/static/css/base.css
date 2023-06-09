@@ -1,30 +1,88 @@
+/* RESETS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: -1.3rem;
+}
+
+html,
+body {
+  font-family: "DM Sans", sans-serif;
+  height: 100%;
+  color: #555;
+  font-size: 65%;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+span {
+  font-weight: 700;
+}
+
+small {
+  font-size: 1.4rem;
+  margin-top: 1.6rem;
+}
+
 /* HEADER */
-.logo {
+.navlogo {
   height: 6.5rem;
 }
 
-.header {
+.navheader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   height: 9rem;
-  padding: 3 4rem;
+  padding: 1rem 4rem;
+  /* margin-left: 21rem; */
 }
 
 .main-nav-list {
   list-style: none;
   display: flex;
-  gap: 1.8rem;
+  gap: 0.8rem;
   font-size: 1.7rem;
   font-weight: 700;
   background: #fafafa;
   border-radius: 50px;
   padding: 1rem 2rem;
+  margin-left: 21rem;
 }
 
 .main-nav-list a {
   padding: 1rem;
   transition: all 150ms ease-in-out;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-nav-list a:hover {
@@ -33,17 +91,17 @@
   border-radius: 20px;
 }
 
-.header .solid-btn {
+.navheader .solid-navbtn {
   padding: 1rem 4rem;
 }
 
-.header .solid-btn i {
+.navheader .solid-navbtn i {
   color: #fafafa;
   margin-right: 0.2rem;
 }
 
 /* HEADER STICKY */
-.sticky .header {
+.sticky .navheader {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -61,7 +119,7 @@
 }
 
 /* MOBILE NAV */
-.mobile-nav-btn {
+.mobile-nav-navbtn {
   border: none;
   background: none;
   cursor: pointer;
@@ -70,7 +128,7 @@
   width: fit-content;
 }
 
-.mobile-nav-btn i {
+.mobile-nav-navbtn i {
   color: #000000;
   font-size: 3.6rem;
 }
@@ -80,9 +138,64 @@
   display: none;
 }
 
+/* HERO BUTTONS  + GENERAL BUTTON STYLING */
+.hero-buttons {
+  margin-top: 4rem;
+}
+
+.navbtn {
+  border-radius: 50px;
+  padding: 1rem 5rem;
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: all 120ms ease-in-out;
+}
+
+.outline-btn {
+  background: white;
+  box-shadow: inset 0 0 0 2px #111111;
+}
+
+.outline-navbtn:hover {
+  background: #ffffffbb;
+  box-shadow: none;
+}
+
+.solid-navbtn {
+  background: #6ba3e7;
+  color: rgb(245, 245, 245);
+}
+
+.solid-navbtn:hover {
+  background: #77adf3;
+}
+
+/* HERO IMAGE */
+.hero-img-wrapper,
+.mobile-hero-img {
+  justify-self: center;
+  margin: 1rem auto 2rem;
+}
+
+.hero-img-wrapper img {
+  min-width: 32rem;
+  max-height: 50rem;
+}
+
+.mobile-hero-img img {
+  display: none;
+  max-width: 50rem;
+  max-height: 50rem;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  filter: opacity(0.8);
+}
+
 @media only screen and (max-width: 83em) {
   /* GENERAL */
-  .body-heading {
+  .body-navheading {
     font-size: 3.8rem;
   }
 }
@@ -98,15 +211,11 @@
   .main-nav-list {
     gap: 1rem;
     padding: 1rem 2rem;
+    display: none;
   }
 
-  .header .solid-btn {
-    padding: 1rem 3rem;
-  }
-
-  /* HERO */
-  .hero-marquee {
-    max-width: 56rem;
+  .navheader .solid-navbtn {
+    padding: 1rem 7rem;
   }
 }
 
@@ -117,7 +226,7 @@
   }
 
   /* MOBILE NAV */
-  .mobile-nav-btn {
+  .mobile-nav-navbtn {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -150,7 +259,7 @@
     flex-direction: column;
     background: none;
     text-align: center;
-    gap: 4rem;
+    gap: 2rem;
   }
 
   .main-nav-list a {
@@ -195,32 +304,30 @@
 }
 
 @media only screen and (max-width: 48em) {
-  .logo-col,
-  .address-col {
-    grid-column: span 3;
-  }
-
-  .nav-col {
-    grid-row: 1;
-    grid-column: span 2;
-    margin-bottom: 1.8rem;
+  /* HERO */
+  .hero-group {
+    grid-template-columns: 1fr;
+    gap: 5rem;
   }
 }
 
 @media only screen and (max-width: 35em) {
   /* HERO */
-  .header {
+  .navheader {
     padding: 0 2rem;
   }
 }
 
-@media only screen and (max-width: 30em) {
-  /* GENERAL */
-  .body-heading br {
-    display: none;
+@media (max-width: 1380px) {
+  .main-nav-list {
+    /* Adjust the component size as desired */
+    font-size: 14px;
+    margin-left: 6rem;
   }
+}
 
-  .body-heading {
-    margin: 0 2rem;
+@media (max-width: 1163px) {
+  .main-nav-list {
+    display: none;
   }
 }
