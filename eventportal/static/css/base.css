@@ -175,6 +175,7 @@ small {
   color: #333;
   font-size: 35px;
   text-decoration: none;
+  opacity: 50%;
 }
 
 /* HERO IMAGE */
