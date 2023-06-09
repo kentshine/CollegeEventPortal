@@ -68,22 +68,23 @@ span {
 .event-card-overview {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  max-width: 120rem;
+  max-width: 150rem;
   gap: 2rem;
   margin-top: 3rem;
 }
 
 /*.... Event Card... */
 .event-card {
-
   border: 1px solid rgba(230, 230, 230, 0.6);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   transition: all 200ms ease-in;
+  height: auto;
 }
 
 .event-card img {
-  width:100%;
+  width: 36rem;
+  height: 30rem;
   border-radius: 16px 16px 0px 0px;
 }
 

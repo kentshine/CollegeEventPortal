@@ -89,9 +89,13 @@
 
   <body>
     <header class="navheader">
-      <a href="{{ url_for('core.index') }}"
-      >
-      <img src="{{ url_for('static', filename='img/final.png') }}" class="navlogo" alt="logo of jyothi" />
+      <!-- <a href="{{ url_for('core.index') }}"
+      > -->
+      <img
+        src="{{ url_for('static', filename='img/final.png') }}"
+        class="navlogo"
+        alt="logo of jyothi"
+      />
       <ul class="main-nav-list">
         <li>
           <a href="#events" class="nav-link">Events</a>
@@ -110,7 +114,9 @@
         <a href="#signup" class="navbtn solid-navbtn mobile-order nav-link"
           ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
         >
-        <a href="{{ url_for('events.create') }}" class="navbtn solid-navbtn desktop-order nav-link"
+        <a
+          href="{{ url_for('events.create') }}"
+          class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa fa-plus-circle" aria-hidden="true"></i> Create event</a
         >
         <a href="#signup" class="navbtn solid-navbtn desktop-order nav-link"
@@ -129,7 +135,7 @@
     </header>
   </body>
 
-    {% block content %} {% endblock %}
+  {% block content %} {% endblock %}
   <!-- JS -->
 
   <script>

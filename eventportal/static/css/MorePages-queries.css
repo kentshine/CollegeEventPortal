@@ -72,14 +72,14 @@
     padding-bottom: 1rem;
   }
 
-@media only screen and (max-width: 58em) {
+  @media only screen and (max-width: 58em) {
     html,
     body {
       font-size: 60%;
     }
   }
 
-@media only screen and (max-width: 35em) {
+  @media only screen and (max-width: 35em) {
     .header {
       padding: 0 2rem;
     }
@@ -122,9 +122,15 @@
     }
   }
 
-@media only screen and (max-width: 30em) {
+  @media only screen and (max-width: 30em) {
     .event-card {
       width: 32rem;
     }
+  }
+}
+
+@media only screen and (max-width: 1560em) {
+  .event-card {
+    height: 46rem;
   }
 }
