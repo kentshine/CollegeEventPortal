@@ -306,7 +306,7 @@
               <div class="heading">
                 <h2>Get Started</h2>
                 <h6>Already have an account?</h6>
-                <a href="#" class="toggle">Sign in</a>
+                <a href="{{ url_for('users.login') }}" class="toggle">Sign in</a>
               </div>
 
               <div class="actual-form">
@@ -345,6 +345,14 @@
         </div>
       </div>
     </main>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="popup open-popup" id="popup">
+      <h1>{{ message }}</h1>
+      <button type="button" onclick="removeFlash()">Ok</button>
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+
   </body>
 </html>
 <!-- Javascript file -->

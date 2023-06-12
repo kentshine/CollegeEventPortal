@@ -357,6 +357,14 @@
     </footer>
     <script src="{{ url_for('static',filename='js/script.js') }}"></script>
   </body>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="popup open-popup" id="popup">
+      <h1>{{ message }}</h1>
+      <button type="button" onclick="removeFlash()">Ok</button>
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+
 </html>
 {% endblock %}
 

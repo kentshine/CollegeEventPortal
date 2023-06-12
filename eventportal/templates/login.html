@@ -308,7 +308,7 @@
               <div class="heading">
                 <h2>Welcome Back</h2>
                 <h6>Not registred yet?</h6>
-                <a href="#" class="toggle">Sign up</a>
+                <a href="{{ url_for('users.login') }}" class="toggle">Sign up</a>
               </div>
 
               <div class="actual-form">
@@ -346,6 +346,15 @@
         </div>
       </div>
     </main>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+    {% for message in messages %}
+      <div class="popup open-popup" id="popup">
+      <h1>{{ message }}</h1>
+    </div>
+    {% endfor %}
+  {% endif %}
+    {% endwith %}
   </body>
 </html>
 

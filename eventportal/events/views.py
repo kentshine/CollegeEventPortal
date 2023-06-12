@@ -1,9 +1,12 @@
 from flask import render_template, url_for, redirect, request, Blueprint,flash
 from flask_login import current_user,login_required
-from eventportal import db
+from flask_mail import Message
+from eventportal import db,mail
 from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper
 from eventportal.events.event_registration import add_user
+
+
 
 events = Blueprint('events',__name__)
 
@@ -55,6 +58,9 @@ def event(event_id):
                 event.coming.append(user)
                 db.session.commit()
                 add_user(user.id,event.id)
+                msg = Message(f'Thank you for registering for {event.title}',sender='jyothieventportal@gmail.com',recipients=['genghiskhanmongolia1234@gmail.com'])
+                msg.body = f"You are successfully registered for {event.title} on {event.event_date}"
+                mail.send(msg)
                 redirect(url_for('core.index'))
                 flash("Thank You For Registering !!")
                 print(user.email , " has been registered to " , event.title)

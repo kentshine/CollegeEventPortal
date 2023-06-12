@@ -275,17 +275,13 @@
         </div>
       </header>
     </div>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-    {% for message in messages %}
-      <div class="popup open-popup" id="popup">
-      <h2>Thank You!!</h2>
-      <p>{{ message }}</p>
-      <button type="button"><a href="{{ url_for('events.event_listview') }}">OK</a></button>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="popup open-popup" id="popup">
+      <h1>{{ message }}</h1>
+      <button type="button" onclick="removeFlash()">Ok</button>
     </div>
-    {% endfor %}
-  {% endif %}
-  {% endwith %}
+    {% endfor %} {% endif %} {% endwith %}
   {% endblock %}
   </body>
 
