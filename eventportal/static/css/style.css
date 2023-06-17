@@ -344,9 +344,10 @@ small {
 }
 
 .event-card img {
-  width: 250%;
-  height: 55%;
+  width: 100%;
+  height: 100%;
   border-radius: 16px 16px 0px 0px;
+  object-fit: cover;
 }
 
 .event-card-body {
