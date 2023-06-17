@@ -94,11 +94,10 @@
       > -->
       <a href="{{ url_for('core.index') }}">
         <img
-
-        src="{{ url_for('static', filename='img/final.png') }}"
-        class="navlogo"
-        alt="logo of jyothi"
-      />
+          src="{{ url_for('static', filename='img/final.png') }}"
+          class="navlogo"
+          alt="logo of jyothi"
+        />
       </a>
 
       <ul class="main-nav-list">
@@ -116,7 +115,9 @@
         </li>
       </ul>
       <nav class="main-nav">
-        <a href="{{ url_for('users.register') }}" class="navbtn solid-navbtn mobile-order nav-link"
+        <a
+          href="{{ url_for('users.register') }}"
+          class="navbtn solid-navbtn mobile-order nav-link"
           ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
         >
         <a
@@ -124,7 +125,9 @@
           class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa fa-plus-circle" aria-hidden="true"></i> Create event</a
         >
-        <a href="{{ url_for('users.register') }}" class="navbtn solid-navbtn desktop-order nav-link"
+        <a
+          href="{{ url_for('users.register') }}"
+          class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
         >
         {% if current_user.is_authenticated %}
@@ -132,12 +135,14 @@
           >{{ current_user.email }}
         </a>
         {% else %}
-        <a href="{{ url_for('users.login') }}" class="navbtn solid-navbtn mobile-order nav-link"
+        <a
+          href="{{ url_for('users.login') }}"
+          class="navbtn solid-navbtn mobile-order nav-link"
           ><i class="fa-regular fa-calendar-check"> </i> Sign In</a
         >
-        <a href="{{ url_for('users.login') }}" class="navbtn solid-navbtn desktop-order nav-link"
+        <!-- <a href="{{ url_for('users.login') }}" class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa-regular fa-calendar-check"></i> Sign  In</a
-        >
+        > -->
         {% endif %}
       </nav>
 
@@ -183,6 +188,5 @@
     );
 
     navObserver.observe(heroElement);
-
   </script>
 </html>

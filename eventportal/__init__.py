@@ -37,10 +37,6 @@ login_manager.login_view = 'users.login'
 login_manager.login_message = "Oui You are Logged In , hooray !!"
 
 login_manager.login_message = "You are Logged In"
-<<<<<<< HEAD
-=======
-
->>>>>>> 57dddfc8918d52261698e2c64096b00b5ba2202c
 login_manager.login_message_category = "info"
 
 ###############################
