@@ -58,7 +58,7 @@ def event(event_id):
                 event.coming.append(user)
                 db.session.commit()
                 add_user(user.id,event.id)
-                msg = Message(f'Thank you for registering for {event.title}',sender='jyothieventportal@gmail.com',recipients=['genghiskhanmongolia1234@gmail.com'])
+                msg = Message(f'Thank you for registering for {event.title}',sender='jyothieventportal@gmail.com',recipients=[user.email])
                 msg.body = f"You are successfully registered for {event.title} on {event.event_date}"
                 mail.send(msg)
                 redirect(url_for('core.index'))
