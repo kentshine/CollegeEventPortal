@@ -101,9 +101,16 @@
 
       <section class="section-events" id="events">
         <h1 class="subheading">[event registration]</h1>
+        {% if events.total == 0 %}
+        <h2 class="body-heading">
+          Currently There is no <span>events</span> !!
+        </h2>
+        {% else %}
         <h2 class="body-heading">
           Jyothi brings a ton of engaging <br /><span>events</span> every year
         </h2>
+        {% endif %}
+
         <div class="event-card-overview">
           {% for event in events.items %}
           <div class="event-card">
@@ -145,9 +152,12 @@
           </div>
           {% endfor %}
         </div>
+
+        {% if events.total > 4 %}
         <div class="event-types-overview">
           <a href="{{ url_for('events.event_listview') }}">More events -></a>
         </div>
+        {% endif %}
       </section>
 
       <!-------------------- FEEDBACK ------------------------>
@@ -347,6 +357,14 @@
     </footer>
     <script src="{{ url_for('static',filename='js/script.js') }}"></script>
   </body>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <div class="popup open-popup" id="popup">
+      <h1>{{ message }}</h1>
+      <button type="button" onclick="removeFlash()">Ok</button>
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+
 </html>
 {% endblock %}
 

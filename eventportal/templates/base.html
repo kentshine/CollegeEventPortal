@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
 
     <!-- Favicon -->
     <link
@@ -91,11 +92,15 @@
     <header class="navheader">
       <!-- <a href="{{ url_for('core.index') }}"
       > -->
-      <img
+      <a href="{{ url_for('core.index') }}">
+        <img
+
         src="{{ url_for('static', filename='img/final.png') }}"
         class="navlogo"
         alt="logo of jyothi"
       />
+      </a>
+
       <ul class="main-nav-list">
         <li>
           <a href="#events" class="nav-link">Events</a>
@@ -111,7 +116,7 @@
         </li>
       </ul>
       <nav class="main-nav">
-        <a href="#signup" class="navbtn solid-navbtn mobile-order nav-link"
+        <a href="{{ url_for('users.register') }}" class="navbtn solid-navbtn mobile-order nav-link"
           ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
         >
         <a
@@ -119,12 +124,21 @@
           class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa fa-plus-circle" aria-hidden="true"></i> Create event</a
         >
-        <a href="#signup" class="navbtn solid-navbtn desktop-order nav-link"
+        <a href="{{ url_for('users.register') }}" class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
         >
+        {% if current_user.is_authenticated %}
         <a href="#profile" class="navbtnprofile desktop-order nav-link"
-          ><i class="far fa-user-circle"></i>
+          >{{ current_user.email }}
         </a>
+        {% else %}
+        <a href="{{ url_for('users.login') }}" class="navbtn solid-navbtn mobile-order nav-link"
+          ><i class="fa-regular fa-calendar-check"> </i> Sign In</a
+        >
+        <a href="{{ url_for('users.register') }}" class="navbtn solid-navbtn desktop-order nav-link"
+          ><i class="fa-regular fa-calendar-check"></i> Sign In</a
+        >
+        {% endif %}
       </nav>
 
       <button class="mobile-nav-navbtn">
@@ -169,5 +183,6 @@
     );
 
     navObserver.observe(heroElement);
+
   </script>
 </html>
