@@ -344,12 +344,14 @@ small {
 }
 
 .event-card img {
-  width: 100%;
+  width: 36rem;
+  height: 30rem;
   border-radius: 16px 16px 0px 0px;
 }
 
 .event-card-body {
   padding: 2.2rem 2rem;
+  height: 20rem;
 }
 
 .event-card-heading {
