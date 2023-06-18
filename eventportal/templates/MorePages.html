@@ -39,6 +39,16 @@
                   ><span>{{event.location}}</span>
                 </li>
               </ul>
+              <a
+                href="{{ url_for('events.update',event_id=event.id) }}"
+                class="evebtn solid-evebtn"
+                >Edit</a
+              >
+              <a
+                href="{{ url_for('events.delete',event_id=event.id) }}"
+                class="evebtn outline-evebtn"
+                >Delete</a
+              >
             </div>
           </div>
           {% endfor %}
