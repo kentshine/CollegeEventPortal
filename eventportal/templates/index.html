@@ -138,8 +138,7 @@
         </div>
         {% if events.total > 4 %}
         <div class="event-types-overview">
-          <a href="{{ url_for('events.event_listview') }}">More Event's <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-          </a>
+          <a href="{{ url_for('events.event_listview') }}"><strong>More Event's</strong> <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a>
         </div>
         {% endif %}
       </section>
@@ -213,7 +212,7 @@
       </section>
 
       <section class="section-signup" id="signup">
-        <h1 class="subheading">[Sign Up]</h1>
+        <h1 class="subheading">[News-Letter]</h1>
         <div class="signup-box">
           <div class="signup-img"></div>
 
@@ -245,7 +244,7 @@
               </div>
 
               <div>
-                <button class="subscribe-btn">Sign Up</button>
+                <button class="subscribe-btn">Get it now!</button>
               </div>
             </form>
             <p class="submission"></p>
@@ -336,7 +335,7 @@
     {% with messages = get_flashed_messages() %} {% if messages %} {% for
     message in messages %}
     <div class="popup open-popup" id="popup">
-      <h1>{{ message }}</h1>
+      <h1 style="color: rgb(2, 2, 2); font-size: 3rem; margin-top: 25px">{{ message }}</h1>
       <button type="button" onclick="removeFlash()">Ok</button>
     </div>
     {% endfor %} {% endif %} {% endwith %}

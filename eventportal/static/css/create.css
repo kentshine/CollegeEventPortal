@@ -31,8 +31,8 @@ body {
   max-width: 900px;
   width: 100%;
   background: #fff;
-  margin: 10px auto;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+  margin: 70px auto;
+  box-shadow: 2px 8px 8px 8px rgba(0, 0, 0, 0.125);
   padding: 30px;
   border-radius: 20px;
 }
@@ -65,7 +65,7 @@ body {
 
 .wrapper .form .inputfield .input,
 .wrapper .form .inputfield .textarea {
-  width: 100%;
+  width: 50%;
   outline: none;
   border: 1px solid #d5dbd9;
   font-size: 15px;
@@ -75,7 +75,7 @@ body {
 }
 
 .wrapper .form .inputfield .textarea {
-  width: 100%;
+  width: 70%;
   height: 125px;
   resize: none;
 }
@@ -122,15 +122,17 @@ body {
 }
 
 .wrapper .form .inputfield .btn {
-  width: 100%;
-  padding: 8px 10px;
-  font-size: 15px;
+  width: 40%;
+  padding: 8px 2px;
+  font-size: 19px;
   border: 0px;
   background: #71a7e6;
   color: #fff;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 20px;
   outline: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wrapper .form .inputfield .btn:hover {

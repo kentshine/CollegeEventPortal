@@ -597,11 +597,13 @@ button {
 .subscribe-btn {
   font-size: 1.8rem;
   font-weight: 700;
+  border-radius: 12rem;
   cursor: pointer;
   background: #71b3e9;
   color: white;
   margin-top: 2.7rem;
   transition: all 150ms ease-in;
+  margin-left: 14rem;
 }
 
 .subscribe-btn:hover {
