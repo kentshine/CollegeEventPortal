@@ -1,10 +1,12 @@
-from flask import render_template, url_for, redirect, request, Blueprint,flash
+from datetime import datetime
+from flask import render_template, url_for, redirect, request, Blueprint,flash,abort
 from flask_login import current_user,login_required
 from flask_mail import Message
 from eventportal import db,mail
 from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper
 from eventportal.events.event_registration import add_user
+from eventportal.events.forms import CreateEventForm
 
 
 
@@ -13,23 +15,24 @@ events = Blueprint('events',__name__)
 @events.route('/create',methods=['GET','POST'])
 @login_required
 def create():
-    if request.method == "POST":
+    form = CreateEventForm()
+
+    if form.validate_on_submit():
+        event = Event(title=form.title.data,user_id=current_user.id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data)
+        '''
         title = request.form.get('title')
         location = request.form.get('location')
         event_date = request.form.get('date')
         event_time = request.form.get('time')
         description = request.form.get('description')
+        '''
 
-
-
-        event = Event(user_id=current_user.id,title=title,location=location,event_date=event_date,event_time=event_time,description=description)
-
+        ## event = Event(user_id=current_user.id,title=title,location=location,event_date=event_date,event_time=event_time,description=description)
         if request.files['wallpaper']:
             wallpaper = request.files['wallpaper']
-            event_name = title
+            event_name = form.title.data
             pic = add_wallpaper(wallpaper,event_name)
             event.wallpaper = pic
-
         db.session.add(event)
         db.session.commit()
         print(event)
@@ -38,7 +41,7 @@ def create():
             next_page=url_for('core.admin')
         return redirect(next_page)
 
-    return render_template('create.html')
+    return render_template('create.html',form=form)
 
 @events.route("/<int:event_id>",methods=["GET","POST"])
 def event(event_id):
@@ -48,7 +51,7 @@ def event(event_id):
         user = User.query.filter_by(id=current_user.id).first()
         registered_before = False
 
-        if not current_user.is_authenticated:
+        if  current_user.is_authenticated == False:
             flash("You are not logged In !!")
         else:
             for student in event.coming:
@@ -78,14 +81,19 @@ def event_listview():
 
 @events.route("/<int:event_id>/update",methods=['GET','POST'])
 def update(event_id):
+    form = CreateEventForm()
     event = Event.query.get_or_404(event_id)
 
-    if request.method == "POST":
-        event.title = request.form.get('title')
-        event.location = request.form.get('location')
-        event.event_date = request.form.get('date')
-        event.event_time = request.form.get('time')
-        event.description = request.form.get('description')
+    if event.creator != current_user:
+        abort(403)
+
+    if form.validate_on_submit():
+        event.title = form.title.data
+        event.location = form.location.data
+        event.event_time = form.event_time.raw_data[0]
+        event.event_date = form.event_date.raw_data[0]
+        event.description = form.description.data
+
         if request.files['wallpaper']:
             wallpaper = request.files['wallpaper']
             event_name = event.title
@@ -93,9 +101,25 @@ def update(event_id):
             event.wallpaper = pic
 
         db.session.commit()
-        return redirect(url_for('events.event',event_id=event_id))
+        return redirect(url_for('events.event', event_id=event_id))
 
-    return render_template('create.html',title='Update')
+
+
+    elif request.method == "GET":
+        form.title.data = event.title
+        form.location.data = event.location
+        form.event_time.data = datetime.strptime(event.event_time,'%H:%M')
+        form.event_date.data = datetime.strptime(event.event_date,'%Y-%m-%d').date()
+        form.description.data = event.description
+    '''
+    if request.method == "POST":
+        event.title = request.form.get('title')
+        event.location = request.form.get('location')
+        event.event_date = request.form.get('date')
+        event.event_time = request.form.get('time')
+        event.description = request.form.get('description')
+    '''
+    return render_template('create.html',title='Update',form=form)
 
 @events.route('/<int:event_id>/delete',methods=['POST','GET'])
 def delete(event_id):
