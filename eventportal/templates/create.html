@@ -9,7 +9,48 @@
     </header> -->
     <div class="wrapper">
       <div class="title">Create Event</div>
+
       <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <div class="form">
+         <div class="inputfield">
+          {{ form.title.label }}
+          {{ form.title(class="input") }}
+        </div>
+
+        <div class="inputfield">
+          {{ form.location.label }}
+          {{ form.location(class="input") }}
+        </div>
+
+        <div class="inputfield">
+          {{ form.event_date.label }}
+          {{ form.event_date(class="input") }}
+        </div>
+        <div class="inputfield">
+          {{ form.event_time.label }}
+          {{ form.event_time(class="input") }}
+        </div>
+
+          <div class="inputfield">
+            <label>Event Banner</label>
+            <input name="wallpaper" type="file" class="input" />
+          </div>
+
+        <div class="inputfield">
+          {{ form.description.label }}
+          {{ form.description(class="input") }}
+        </div>
+
+        <div class="inputfield">
+          {{ form.submit(class="btn") }}
+        </div>
+      </div>
+
+      </form>
+      <!--
+        <form method="POST" enctype="multipart/form-data">
         <div class="form">
           <div class="inputfield">
             <label>Event Name</label>
@@ -32,10 +73,7 @@
             <label>Time</label>
             <input name="time" type="time" class="input" />
           </div>
-          <div class="inputfield">
-            <label>Event Banner</label>
-            <input name="wallpaper" type="file" class="input" />
-          </div>
+
           <div class="inputfield">
             <label>Event Description</label>
             <textarea
@@ -48,6 +86,9 @@
           </div>
         </div>
       </form>
+      !-->
+
+
     </div>
     {% with messages = get_flashed_messages() %} {% if messages %} {% for
     message in messages %}

@@ -3,8 +3,6 @@
 <title>CollegeEventPortal</title>
 
 
-
-
   <!---------------------- NAV ----------------------->
   <body>
     <!-- <header class="header">
@@ -112,7 +110,7 @@
         {% endif %}
 
         <div class="event-card-overview">
-          {% for event in events.items %}
+          {% for event in events.items[:4] %}
           <div class="event-card">
             <img
               src="{{ url_for('static',filename='event_wallpapers/'+ event.wallpaper) }}"
