@@ -4,12 +4,13 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
 body {
-  background: linear-gradient(
+  /* background: linear-gradient(
     450.56deg,
     rgba(8, 141, 230, 0.43) -32.94%,
     rgba(216, 245, 204, 0) 99.61%
-  );
+  ); */
   padding: 0 10px;
 }
 

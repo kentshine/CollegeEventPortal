@@ -136,11 +136,12 @@ small {
 
 /* HERO */
 .section-hero {
-  background: linear-gradient(
+  /* background: linear-gradient(
     359.56deg,
     rgba(8, 141, 230, 0.43) -32.94%,
     rgba(216, 245, 204, 0) 99.61%
-  );
+  ); */
+  background-color: #174a01;
   padding: 4rem 0;
 }
 
