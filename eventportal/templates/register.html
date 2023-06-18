@@ -355,4 +355,15 @@
 
   </body>
 </html>
+
 <!-- Javascript file -->
+
+<script>
+  const inputs = document.querySelectorAll(".input-field");
+
+  inputs.forEach((inp) => {
+    inp.addEventListener("focus", () => {
+      inp.classList.add("active");
+    });
+  });
+</script>
