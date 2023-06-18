@@ -134,6 +134,7 @@
         <a href="#profile" class="navbtnprofile desktop-order nav-link"
           >{{ current_user.email }}
         </a>
+
         {% else %}
         <a
           href="{{ url_for('users.login') }}"

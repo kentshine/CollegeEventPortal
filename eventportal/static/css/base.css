@@ -176,6 +176,7 @@ small {
   font-size: 14px;
   text-decoration: none;
   opacity: 90%;
+  transition: opacity 0.3s ease;
 }
 
 /* HERO IMAGE */
