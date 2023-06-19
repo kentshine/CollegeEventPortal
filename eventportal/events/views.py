@@ -75,9 +75,11 @@ def event(event_id):
 
 @events.route("/event-list")
 def event_listview():
+    is_admin = request.args.get('is_admin')
+    print(is_admin)
     page = request.args.get('page',1,type=int)
     events = Event.query.paginate(page=page,per_page=10)
-    return render_template("MorePages.html",events=events)
+    return render_template("MorePages.html",events=events,is_admin=is_admin)
 
 @events.route("/<int:event_id>/update",methods=['GET','POST'])
 def update(event_id):
