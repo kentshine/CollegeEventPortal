@@ -80,4 +80,6 @@ const slider = function () {
     }
   });
 };
+
+
 slider();
