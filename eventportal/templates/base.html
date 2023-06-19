@@ -129,10 +129,19 @@
           class="navbtn solid-navbtn desktop-order nav-link"
           ><i class="fa-regular fa-calendar-check"></i> Sign Up</a
         >
+        
         {% if current_user.is_authenticated %}
         <a href="#profile" class="navbtnprofile desktop-order nav-link"
           >{{ current_user.email }}
         </a>
+        <div class="dropdown">
+          <button onclick="toggleDropdown()" class="dropdown-button">
+            <span class="arrow">&#9662;</span>
+          </button>
+          <div id="dropdown-content" class="dropdown-content">
+            <a href="#">Log Out</a>
+          </div>
+        </div>
 
         {% else %}
         <a
@@ -188,5 +197,7 @@
     );
 
     navObserver.observe(heroElement);
+
+    
   </script>
 </html>

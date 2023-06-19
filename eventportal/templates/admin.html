@@ -153,7 +153,7 @@
 
         {% if events.total > 4 %}
         <div class="event-types-overview">
-          <a href="{{ url_for('events.event_listview') }}">More events <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a>
+          <a href="{{ url_for('events.event_listview',is_admin=true) }}">More events <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a>
         </div>
         {% endif %}
       </section>

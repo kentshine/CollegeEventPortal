@@ -39,6 +39,7 @@
                   ><span>{{event.location}}</span>
                 </li>
               </ul>
+            {% if is_admin == "True" %}
               <a
                 href="{{ url_for('events.update',event_id=event.id) }}"
                 class="evebtn solid-evebtn"
@@ -49,6 +50,7 @@
                 class="evebtn outline-evebtn"
                 >Delete</a
               >
+              {% endif %}
             </div>
           </div>
           {% endfor %}
