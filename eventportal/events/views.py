@@ -48,12 +48,11 @@ def event(event_id):
     event = Event.query.get_or_404(event_id)
     event_wallpaper = url_for('static',filename='event_wallpapers//'+event.wallpaper)
     if request.method == "POST":
-        user = User.query.filter_by(id=current_user.id).first()
         registered_before = False
-
         if  current_user.is_authenticated == False:
-            flash("You are not logged In !!")
+            flash("You need to have account to register !!")
         else:
+            user = User.query.filter_by(id=current_user.id).first()
             for student in event.coming:
                 if student.email == user.email:
                     registered_before = True
