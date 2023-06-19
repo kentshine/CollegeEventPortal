@@ -352,6 +352,7 @@ small {
 }
 
 .dropdown-content {
+    border: 3px solid lightblue;
   display: none;
   position: absolute;
   background-color: #ffffff;

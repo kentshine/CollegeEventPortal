@@ -1,9 +1,8 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
-from flask_login import login_user
+from flask_login import login_user,logout_user
 from eventportal import db
 from eventportal.users.forms import LoginForm
 from eventportal.models import User
-
 users = Blueprint('users', __name__)
 
 @users.route("/register",methods=['GET','POST'])
@@ -52,3 +51,7 @@ def login():
             return redirect(next_page)
     return render_template('login.html')
 
+@users.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('core.index'))
