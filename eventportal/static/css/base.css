@@ -55,6 +55,7 @@ small {
 /* HEADER */
 .navlogo {
   height: 6.5rem;
+  left: 0;
 }
 
 .navheader {
@@ -62,7 +63,7 @@ small {
   align-items: center;
   justify-content: space-between;
   height: 9rem;
-  padding: 1rem 1rem;
+  padding: 1rem 0rem;
   /* margin-left: 21rem; */
 }
 
@@ -75,7 +76,7 @@ small {
   background: #fafafa;
   border-radius: 50px;
   padding: 1rem 2rem;
-  margin-left: 21rem;
+  left: 50%;
 }
 
 .main-nav-list a {
@@ -92,7 +93,7 @@ small {
 }
 
 .navheader .solid-navbtn {
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
 }
 
 .navheader .solid-navbtn i {
