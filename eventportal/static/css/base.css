@@ -62,7 +62,7 @@ small {
   align-items: center;
   justify-content: space-between;
   height: 9rem;
-  padding: 1rem 4rem;
+  padding: 1rem 1rem;
   /* margin-left: 21rem; */
 }
 
@@ -147,7 +147,7 @@ small {
   border-radius: 50px;
   padding: 1rem 5rem;
   font-size: 1.7rem;
-  margin: 0 1rem;
+  margin: 0 0.3rem;
   font-weight: 500;
   transition: all 120ms ease-in-out;
 }
