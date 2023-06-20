@@ -175,7 +175,7 @@ small {
 
 /* HERO MARQUEE */
 .hero-marquee {
-  max-width: 65rem;
+  max-width: 95rem;
   white-space: nowrap;
   overflow: hidden;
 }

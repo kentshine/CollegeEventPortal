@@ -180,14 +180,13 @@ small {
 }
 
 .event-types-list {
-  text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 3rem;
 }
 
 .marquee-animation {
-  animation: marquee 17s linear infinite;
+  animation: marquee 12s linear infinite;
 }
 
 .marquee-animation:hover {
