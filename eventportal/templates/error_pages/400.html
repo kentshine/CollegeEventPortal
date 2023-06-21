@@ -74,15 +74,15 @@
   </head>
   <body>
     <div class="error_container">
-      <a href="/" class="brand"
-        ><img src="static/img/final.png" width="300" height="100"
+      <a href="{{ url_for('core.index') }}" class="brand"
+        ><img src="{{ url_for('static',filename='img/final.png') }}" width="300" height="100"
       /></a>
 
-      <h2>Error 404</h2>
-      <h1>Bad request.</h1>
+      <h2>Error {{ error_code }}</h2>
+      <h1>{{ error_message }}</h1>
 
       <p><strong>Stop It, Get Some Help :(</strong></p>
-      <span class="go-back"><a href="/">Go back</a></span>
+      <span class="go-back"><a href="{{ url_for('core.index') }}">Go back</a></span>
     </div>
   </body>
 </html>

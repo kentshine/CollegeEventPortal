@@ -85,8 +85,6 @@ def update(event_id):
     form = CreateEventForm()
     event = Event.query.get_or_404(event_id)
 
-    if event.creator != current_user:
-        abort(403)
 
     if form.validate_on_submit():
         event.title = form.title.data
