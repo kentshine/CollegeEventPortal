@@ -8,6 +8,6 @@ class CreateEventForm(FlaskForm):
     description = TextAreaField('Description', validators=[DataRequired()])
     event_date = DateField('Date',validators=[DataRequired()])
     event_time = TimeField('Time',validators=[DataRequired()])
-    location = SelectField('Location', choices=[("1","Main Hall"),("2","Alumini Corner"),("3","Hall No .1"),("4","Hall No .2")] , validators=[DataRequired()])
+    location = SelectField('Location', choices=[("Main Hall","Main Hall"),("Alumini Corner","Alumini Corner"),("Hall No .1","Hall No .1"),("Hall No .2","Hall No .2")] , validators=[DataRequired()])
     submit = SubmitField('Create')
 
