@@ -7,7 +7,7 @@ from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper
 from eventportal.events.event_registration import add_user
 from eventportal.events.forms import CreateEventForm
-from eventportal.quickstart import create_calendar_event,update_calendar_event
+from eventportal.calendar import create_calendar_event,update_calendar_event
 
 
 events = Blueprint('events',__name__)
@@ -40,7 +40,7 @@ def create():
         print(event)
         next_page = request.args.get('next')
         if next_page is None or not next_page[0]=="/":
-            next_page=url_for('core.admin')
+            next_page=url_for('core.index')
         return redirect(next_page)
 
     return render_template('create.html',form=form)
