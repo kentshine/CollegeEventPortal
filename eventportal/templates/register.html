@@ -270,6 +270,8 @@
         font-size: 1.6rem;
       }
 
+      
+
       @media (max-width: 850px) {
         .box {
           height: auto;
@@ -347,11 +349,50 @@
 
               <div class="heading">
                 <h2>Get Started</h2>
-                <h6>Already have an account?</h6>
-                <a href="{{ url_for('users.login') }}" class="toggle">Sign in</a>
+                <!-- <h6>Already have an account?</h6>
+                <a href="{{ url_for('users.login') }}" class="toggle">Sign in</a> -->
               </div>
 
               <div class="actual-form">
+                <div class="input-wrap">
+                  <input
+                    name="User name"
+                    type="name"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Name</label>
+                </div>
+
+                <div class="input-wrap">
+                  <select name="department" class="input-field">
+                    <option value="" disabled selected></option>
+                    <option value="S1">CS</option>
+                    <option value="S2">EE</option>
+                    <option value="S3">CE</option>
+                    <option value="S4">EC</option>
+                    <option value="S5">MR</option>
+                    <option value="S6">AD</option>
+                  </select>
+                  <label>Department</label>
+                </div>
+
+                <div class="input-wrap">
+                  <select name="semester" class="input-field">
+                    <option value="" disabled selected></option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                    <option value="S4">S4</option>
+                    <option value="S5">S5</option>
+                    <option value="S6">S6</option>
+                    <option value="S7">S7</option>
+                    <option value="S8">S8</option>
+                  </select>
+                  <label>Semester</label>
+                </div>
+              
                 <div class="input-wrap">
                   <input
                     name="email"
@@ -362,7 +403,7 @@
                   />
                   <label>Email</label>
                 </div>
-
+              
                 <div class="input-wrap">
                   <input
                     name="password"
@@ -373,15 +414,20 @@
                   />
                   <label>Password</label>
                 </div>
-
+              
                 <input type="submit" value="Sign Up" class="sign-btn" />
 
-                <p class="text">
+                <div class="heading">
+                  <h6>Already have an account?</h6>
+                  <a href="{{ url_for('users.login') }}" class="toggle">Sign in</a>
+                </div>
+              
+                <!-- <p class="text">
                   By signing up, I agree to the
-                  <a href="#">Terms of Services</a> and
-                  <a href="#">Privacy Policy</a>
-                </p>
+                  <a href="#">Terms of Services</a>
+                </p> -->
               </div>
+              
             </form>
           </div>
         </div>
