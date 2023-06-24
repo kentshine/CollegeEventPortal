@@ -7,7 +7,7 @@ from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper
 from eventportal.events.event_registration import add_user
 from eventportal.events.forms import CreateEventForm
-
+from eventportal.quickstart import create_calendar_event,update_calendar_event
 
 
 events = Blueprint('events',__name__)
@@ -18,7 +18,9 @@ def create():
     form = CreateEventForm()
 
     if form.validate_on_submit():
-        event = Event(title=form.title.data,user_id=current_user.id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data)
+        calendar_id = create_calendar_event(title=form.title.data, description=form.description.data, location=form.location.data,date=form.event_date.raw_data[0], time=form.event_time.raw_data[0],creator_email=current_user.email)
+        print(calendar_id)
+        event = Event(title=form.title.data,user_id=current_user.id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data,calendar_id=calendar_id)
         '''
         title = request.form.get('title')
         location = request.form.get('location')
@@ -60,6 +62,7 @@ def event(event_id):
                 event.coming.append(user)
                 db.session.commit()
                 add_user(user.id,event.id)
+                update_calendar_event(calendar_id='primary',event_id=event.calendar_id,new_guest=user.email)
                 msg = Message(f'Thank you for registering for {event.title}',sender='jyothieventportal@gmail.com',recipients=[user.email])
                 msg.body = f"You are successfully registered for {event.title} on {event.event_date}"
                 mail.send(msg)
@@ -84,8 +87,6 @@ def event_listview():
 def update(event_id):
     form = CreateEventForm()
     event = Event.query.get_or_404(event_id)
-
-
     if form.validate_on_submit():
         event.title = form.title.data
         event.location = form.location.data

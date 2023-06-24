@@ -46,18 +46,17 @@ class Event(db.Model):
     event_time = db.Column(db.String,nullable=False)
     location = db.Column(db.String,nullable=False)
     description = db.Column(db.Text, nullable=False)
+    calendar_id = db.Column(db.String,nullable=False)
     wallpaper = db.Column(db.String,nullable=False,default="nothing.jpg")
 
-    def __int__(self,user_id,title,event_date,event_time,location,description):
+    def __int__(self,user_id,title,event_date,event_time,location,description,calendar_id):
         self.user_id = user_id
         self.title = title
         self.event_date = event_date
         self.event_time = event_time
         self.location = location
         self.description = description
-
-
-
+        self.calendar_id = calendar_id
 
     def __repr__(self):
         return f"Event Id: {self.id} --- Date: {self.event_date} --- Title: {self.title} --- Created By:{self.user_id}"

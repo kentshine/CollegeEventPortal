@@ -13,73 +13,99 @@ from googleapiclient.errors import HttpError
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
-def main():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
-    """
+def initialize():
     creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
     if os.path.exists('token.json'):
         creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                'eventportal/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
 
+    return creds
+
+def create_calendar_event(title, description, location, date, time,creator_email):
+    creds = initialize()
+
     try:
         service = build('calendar', 'v3', credentials=creds)
-
-        # Call the Calendar API
-        # Refer to the Python quickstart on how to setup the environment:
-# https://developers.google.com/calendar/quickstart/python
-# Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
-# stored credentials.
-
+        event_date = f'{date}T{time}:00-00:00'
+        print(event_date)
         event = {
-        'summary': 'Google I/O 2015',
-        'location': '800 Howard St., San Francisco, CA 94103',
-        'description': 'A chance to hear more about Google\'s developer products.',
-        'start': {
-            'dateTime': '2023-06-28T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles',
-        },
-        'end': {
-            'dateTime': '2023-06-28T17:00:00-07:00',
-            'timeZone': 'America/Los_Angeles',
-        },
-        'recurrence': [
-            'RRULE:FREQ=DAILY;COUNT=2'
-        ],
-        'attendees': [
-            {'email': 'lpage@example.com'},
-            {'email': 'sbrin@example.com'},
-        ],
-        'reminders': {
-            'useDefault': False,
-            'overrides': [
-            {'method': 'email', 'minutes': 24 * 60},
-            {'method': 'popup', 'minutes': 10},
-            ],
-        },
+            'summary': title,
+            'location': location,
+            'description': description,
+            'start': {
+                'dateTime': event_date,
+                'timeZone': 'Asia/Kolkata',
+            },
+            'end': {
+                'dateTime': event_date,
+                'timeZone': 'Asia/Kolkata',
+            },
+            'attendees': [{'email':creator_email}],
+            'reminders': {
+                'useDefault':False,
+                'overrides': [
+                    {'method': 'email', 'minutes': 24 * 60},
+                    {'method': 'popup', 'minutes': 10},
+                ],
+            }
         }
 
         event = service.events().insert(calendarId='primary', body=event).execute()
         # print('Event created: %s') % (event.get('htmlLink'))
+        return event['id']
 
 
     except HttpError as error:
         print('An error occurred: %s' % error)
 
 
-if __name__ == '__main__':
-    main()
-    
+def list_events():
+    creds = initialize()
+
+    try:
+        service = build('calendar', 'v3', credentials=creds)
+        now = datetime.datetime.utcnow().isoformat() + 'Z'
+        events_result = service.events().list(calendarId='primary', timeMin=now,
+                                              maxResults=10, singleEvents=True,
+                                              orderBy='startTime').execute()
+        events = events_result.get('items',[])
+
+        #printing events
+        return events
+
+
+
+    except HttpError as error:
+        print('An error occurred: %s' % error)
+
+
+def update_calendar_event(calendar_id,event_id,new_guest):
+    creds = initialize()
+    try:
+        service = build('calendar', 'v3', credentials=creds)
+        event = service.events().get(calendarId=calendar_id, eventId=event_id).execute()
+        print(event.keys())
+        attendees = event['attendees']
+        attendees.append({'email':new_guest})
+        event['attendees'] = attendees
+        updated_event = service.events().update(calendarId=calendar_id,eventId=event_id,body=event).execute()
+        print(updated_event['updated'])
+    except HttpError as error:
+        print("An error occured: %s" % error)
+
+'''
+events = list_events()
+for event in events:
+    print(event['id'] , event['summary'])
+'''
+
+
+## update_event(calendar_id='primary',event_id='i21dpndpibuo46fgb8a9j75qg8',new_guest='genghiskhan@gmail.com')
