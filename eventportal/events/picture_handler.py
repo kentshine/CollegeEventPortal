@@ -13,13 +13,13 @@ def add_wallpaper(pic_upload,event_name):
 
     output_size = (700,700)
 
-    pic = Image.open(pic_upload)
-    pic.thumbnail(output_size)
-    pic.save(filepath)
+    with Image.open(pic_upload) as pic:
+        pic.thumbnail(output_size)
+        pic.save(filepath)
 
     return storage_filename
 
 
 def delete_wallpaper(event_wallpaper):
-    filepath = os.path.join(current_app.root_path,'static\event_wallpapers',event_wallpaper)
-    os.remove(filepath)
+    filepath = Path(current_app.root_path,'static\event_wallpapers',event_wallpaper)
+    filepath.unlink()
