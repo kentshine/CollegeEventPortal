@@ -122,8 +122,6 @@ def update(event_id):
 @events.route('/<int:event_id>/delete',methods=['POST','GET'])
 def delete(event_id):
     event = Event.query.get_or_404(event_id)
-    delete_records(event_id)
-    delete_wallpaper(event.wallpaper)
     db.session.delete(event)
     db.session.commit()
 

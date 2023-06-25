@@ -1,6 +1,6 @@
 import os
 import csv
-import pandas
+from pathlib import Path
 from flask import current_app,url_for
 from eventportal.models import User,Event
 
@@ -16,13 +16,18 @@ def add_user(user_id,event_id):
             writer = csv.DictWriter(csvfile, fieldnames=fields)
             writer.writeheader()
             writer.writerow(fields_dict)
+
     else:
         with open(event_record_file,'a') as csvfile:
             writer = csv.DictWriter(csvfile,fieldnames=fields)
             writer.writerow(fields_dict)
 
+    csvfile.close()
+
 
 def delete_records(event_id):
     event_record_file = os.path.join(current_app.root_path, 'static\event_records', str(event_id) + '.csv')
+    with open(event_record_file,'r') as event_file:
+        event_file.close()
     os.remove(event_record_file)
 
