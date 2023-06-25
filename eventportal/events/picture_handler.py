@@ -18,3 +18,8 @@ def add_wallpaper(pic_upload,event_name):
     pic.save(filepath)
 
     return storage_filename
+
+
+def delete_wallpaper(event_wallpaper):
+    filepath = os.path.join(current_app.root_path,'static\event_wallpapers',event_wallpaper)
+    os.remove(filepath)

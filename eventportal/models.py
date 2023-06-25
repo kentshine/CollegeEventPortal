@@ -19,14 +19,21 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
+    username = db.Column(db.String(64))
     password_hash = db.Column(db.String(128))
     event = db.relationship('Event', backref='creator', lazy=True)
+    department = db.Column(db.String(64))
+    semester = db.Column(db.String(64))
     registered_events = db.relationship('Event',secondary=registered,backref=db.backref('coming',lazy='dynamic'))
 
 
-    def __init__(self, email, password):
+    def __init__(self, email, password,username,semester,department):
+        self.username = username
+        self.semester = semester
+        self.department = department
         self.email = email
         self.password_hash = generate_password_hash(password)
+
 
 
     def check_password(self, password):

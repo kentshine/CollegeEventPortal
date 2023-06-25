@@ -34,11 +34,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
 
-login_manager.login_message = "Oui You are Logged In , hooray !!"
-
-login_manager.login_message = "You are Logged In"
-login_manager.login_message_category = "info"
-
 ###############################
 ###### BLUEPRINT CONFIGS ######
 ###############################

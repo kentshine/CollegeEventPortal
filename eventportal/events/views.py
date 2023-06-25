@@ -1,14 +1,13 @@
 from datetime import datetime
 from flask import render_template, url_for, redirect, request, Blueprint,flash,abort
 from flask_login import current_user,login_required
-from flask_mail import Message
-from eventportal import db,mail
+from eventportal import db
 from eventportal.models import Event,User
-from eventportal.events.picture_handler import add_wallpaper
-from eventportal.events.event_registration import add_user
+from eventportal.events.picture_handler import add_wallpaper,delete_wallpaper
+from eventportal.events.event_registration import add_user,delete_records
+from eventportal.events.email_handler import send_email
 from eventportal.events.forms import CreateEventForm
 from eventportal.calendar import create_calendar_event,update_calendar_event
-
 
 events = Blueprint('events',__name__)
 
@@ -21,6 +20,12 @@ def create():
         calendar_id = create_calendar_event(title=form.title.data, description=form.description.data, location=form.location.data,date=form.event_date.raw_data[0], time=form.event_time.raw_data[0],creator_email=current_user.email)
         print(calendar_id)
         event = Event(title=form.title.data,user_id=current_user.id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data,calendar_id=calendar_id)
+        if request.files['wallpaper']:
+            wallpaper = request.files['wallpaper']
+            event_name = form.title.data
+            pic = add_wallpaper(wallpaper,event_name)
+            event.wallpaper = pic
+
         '''
         title = request.form.get('title')
         location = request.form.get('location')
@@ -30,11 +35,7 @@ def create():
         '''
 
         ## event = Event(user_id=current_user.id,title=title,location=location,event_date=event_date,event_time=event_time,description=description)
-        if request.files['wallpaper']:
-            wallpaper = request.files['wallpaper']
-            event_name = form.title.data
-            pic = add_wallpaper(wallpaper,event_name)
-            event.wallpaper = pic
+
         db.session.add(event)
         db.session.commit()
         print(event)
@@ -63,11 +64,8 @@ def event(event_id):
                 db.session.commit()
                 add_user(user.id,event.id)
                 update_calendar_event(calendar_id='primary',event_id=event.calendar_id,new_guest=user.email)
-                msg = Message(f'Thank you for registering for {event.title}',sender='jyothieventportal@gmail.com',recipients=[user.email])
-                msg.body = f"You are successfully registered for {event.title} on {event.event_date}"
-                mail.send(msg)
+                flash(send_email(event_id=event.id,user_id=user.id))
                 redirect(url_for('core.index'))
-                flash("Thank You For Registering !!")
                 print(user.email , " has been registered to " , event.title)
             elif registered_before:
                 flash("You are already registered !!")
@@ -124,6 +122,8 @@ def update(event_id):
 @events.route('/<int:event_id>/delete',methods=['POST','GET'])
 def delete(event_id):
     event = Event.query.get_or_404(event_id)
+    delete_records(event_id)
+    delete_wallpaper(event.wallpaper)
     db.session.delete(event)
     db.session.commit()
 

@@ -132,7 +132,7 @@
         
         {% if current_user.is_authenticated %}
         <a href="{{ url_for('users.logout') }}" class="navbtnprofile desktop-order nav-link"
-          >{{ current_user.email }}
+          >{{ current_user.username }}
         </a>
         <div class="dropdown">
           <button onclick="toggleDropdown()" class="dropdown-button">

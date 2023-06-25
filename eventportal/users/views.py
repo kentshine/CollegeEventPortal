@@ -12,14 +12,16 @@ def register():
     if request.method == "POST":
         email = request.form.get('email')
         password = request.form.get('password')
+        username = request.form.get('username')
+        department = request.form.get('department')
+        semester = request.form.get('semester')
         print("this is email", email)
         print("this is password ", password)
         if User.query.filter_by(email=email).first() is not None:
             flash("Account with this email already exists !!")
             return redirect(url_for("users.register"))
         elif User.query.filter_by(email=email).first() is None:
-
-            user = User(email=email, password=password)
+            user = User(email=email, password=password,username=username,department=department,semester=semester)
             db.session.add(user)
             db.session.commit()
             flash("Thanks for registering! Now you can login!")
