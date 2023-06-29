@@ -155,6 +155,8 @@
   .event-card-overview {
     grid-template-columns: repeat(2, minmax(28rem, 38rem));
     gap: 3rem;
+    /* margin-left: auto;
+    margin-right: auto; */
   }
 
   .event-card .event-types-list li {
@@ -406,5 +408,17 @@
   .hero-heading,
   .hero-description {
     max-width: 32rem;
+  }
+
+  .event-card-overview {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 28em) {
+  .event-card-overview {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
