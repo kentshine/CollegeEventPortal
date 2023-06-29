@@ -714,6 +714,20 @@ button {
   background: #62abe6;
 }
 
+@media only screen and (max-width: 30em) {
+  .subscribe-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 60em) {
+  .subscribe-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .submission {
   font-size: 1.5rem;
   text-align: center;
