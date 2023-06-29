@@ -245,7 +245,7 @@
   } */
 
   .hero-img-wrapper {
-    display: none;
+    display: contents;
   }
 
   .mobile-hero-img img {
