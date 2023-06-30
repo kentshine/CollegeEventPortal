@@ -11,5 +11,5 @@
 
 ## Introduction
 
-This is a user-friendly website created with HTML, CSS, and Flask, tailored to streamline event registration processes within college campuses. The website provides a seamless experience for both event organizers and participants, offering a comprehensive platform to browse, register, and manage various events.
+<strong>This is a user-friendly website created with HTML, CSS, and Flask, tailored to streamline event registration processes within college campuses. The website provides a seamless experience for both event organizers and participants, offering a comprehensive platform to browse, register, and manage various events.</strong>
    
