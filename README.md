@@ -62,6 +62,10 @@ python app.py
 
 ➡ http://127.0.0.1:5000
 
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
 
 
 
