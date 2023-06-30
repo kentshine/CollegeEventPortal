@@ -7,7 +7,7 @@ from eventportal.events.picture_handler import add_wallpaper,delete_wallpaper
 from eventportal.events.event_registration import add_user,delete_records
 from eventportal.events.email_handler import send_email
 from eventportal.events.forms import CreateEventForm
-from eventportal.calendar import create_calendar_event,update_calendar_event
+from eventportal.Calendar import create_calendar_event,update_calendar_event
 
 events = Blueprint('events',__name__)
 
