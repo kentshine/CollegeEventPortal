@@ -46,6 +46,19 @@ Werkzeug==2.3.4
 WTForms==3.0.1
 ```
 
+## Installation
+
+
+Install the requirements'
+```sh
+pip install requirements.txt
+```
+
+Run app.py,
+
+```sh
+python app.py
+```
 
 
 
