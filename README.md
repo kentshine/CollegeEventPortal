@@ -64,7 +64,7 @@ python app.py
 ## Acknowledgements
 
 * [Ejin](https://github.com/ejinbt/)
-* [</WOC>](https://discord.com/invite/program)
+* [WOC](https://discord.com/invite/program)
 
 ## License
 
