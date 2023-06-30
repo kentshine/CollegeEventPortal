@@ -11,5 +11,41 @@
 
 ## Introduction
 
-<strong>This is a user-friendly website created with HTML, CSS, and Flask, tailored to streamline event registration processes within college campuses. The website provides a seamless experience for both event organizers and participants, offering a comprehensive platform to browse, register, and manage various events.</strong>
+**This is a user-friendly website created with HTML, CSS, and Flask, tailored to streamline event registration processes within college campuses. The website provides a seamless experience for both event organizers and participants, offering a comprehensive platform to browse, register, and manage various events.**
+
    
+## Requirements
+
+ Listing all the dependencies specific to this project:
+
+```sh
+alembic==1.11.1
+blinker==1.6.2
+click==8.1.3
+colorama==0.4.6
+dnspython==2.3.0
+email-validator==2.0.0.post2
+Flask==2.3.2
+Flask-Admin==1.6.1
+Flask-Assets==2.0
+Flask-Login==0.6.2
+Flask-Migrate==4.0.4
+Flask-SQLAlchemy==3.0.3
+Flask-WTF==1.1.1
+greenlet==2.0.2
+Pillow==9.5.0
+idna==3.4
+itsdangerous==2.1.2
+Jinja2==3.1.2
+Mako==1.2.4
+MarkupSafe==2.1.2
+SQLAlchemy==2.0.13
+typing_extensions==4.5.0
+webassets==2.0
+Werkzeug==2.3.4
+WTForms==3.0.1
+```
+
+
+
+
