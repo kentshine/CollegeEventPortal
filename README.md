@@ -56,9 +56,11 @@ pip install requirements.txt
 
 Run app.py,
 
-```sh
+```
 python app.py
 ```
+
+➡ http://127.0.0.1:5000
 
 
 
