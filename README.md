@@ -2,9 +2,9 @@
 <p align="center">
   <a href="https://github.com/ShaanCoding/ReadME-Generator">
     <img src="eventportal/static/img/final.png" alt="Logo" width="300" height="100">
-  </a>
+    <h1 align="center">JEC Event Management Web Application</h1>
 
-  <h3 align="center">JEC Event Portal</h3>
+  </a>
 
   <p align="center">
     Stay connected with college community through our innovative event portal!
