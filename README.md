@@ -16,7 +16,7 @@
    
 ## Requirements
 
- Listing all the dependencies specific to this project:
+ Listing all the dependencies specific to this project :
 
 ```sh
 alembic==1.11.1
