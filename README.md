@@ -6,7 +6,7 @@
   </a>
 
   <p align="center">
-    Stay connected with college community through our innovative event portal!
+    Stay connected with college events' & community through our innovative event portal!
 
 ## Introduction
 
