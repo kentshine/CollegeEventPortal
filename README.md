@@ -1,4 +1,4 @@
-:construction: :construction: :construction: :construction: :construction: **UNDER CONSTRUCTION** :construction: :construction: :construction: :construction: :construction: 
+:construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction::construction: **UNDER CONSTRUCTION** :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction: :construction::construction: :construction: :construction: :construction: :construction::construction: 
 <br/>
 <p align="center">
     <img src="eventportal/static/img/final.png" alt="Logo" width="300" height="100">
