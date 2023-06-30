@@ -1,3 +1,4 @@
+:construction: !! UNDER CONSTRUCTION !!
 <br/>
 <p align="center">
     <img src="eventportal/static/img/final.png" alt="Logo" width="300" height="100">
@@ -50,7 +51,7 @@ WTForms==3.0.1
 
 Install the requirements'
 ```sh
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Run app.py,
