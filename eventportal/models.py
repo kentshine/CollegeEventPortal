@@ -1,8 +1,17 @@
-from eventportal import db, login_manager
+from flask_login import LoginManager
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from flask_admin.contrib.sqla import ModelView
+from flask_admin import BaseView, expose
+from flask import redirect,render_template,url_for,Response
+from flask_basicauth import BasicAuth
+from werkzeug.exceptions import HTTPException
 
 
+basic_auth = BasicAuth()
+db = SQLAlchemy()
+login_manager = LoginManager()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -13,6 +22,32 @@ registered = db.Table('registered',
                       db.Column('user_id',db.Integer,db.ForeignKey('users.id'),primary_key=True),
                       db.Column('event_id',db.Integer,db.ForeignKey('event.id'),primary_key=True)
                       )
+
+class EventView(ModelView):
+    @expose('/new/', methods=('GET', 'POST'))
+    def create_view(self):
+        return redirect(url_for('events.create'))
+
+
+class AuthException(HTTPException):
+    def __init__(self,message):
+        super().__init__(message,Response(
+            message,401,
+            {'WWW-Authenticate': 'Basic realm="Login Required"'}
+        ))
+
+
+
+
+class UserView(ModelView):
+    def is_accessible(self):
+        if not basic_auth.authenticate():
+            raise AuthException('Not authenticated. Refresh the page.')
+        else:
+            return True
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(basic_auth.challenge())
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -67,3 +102,4 @@ class Event(db.Model):
 
     def __repr__(self):
         return f"Event Id: {self.id} --- Date: {self.event_date} --- Title: {self.title} --- Created By:{self.user_id}"
+

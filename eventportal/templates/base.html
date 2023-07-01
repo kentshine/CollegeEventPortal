@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,12 +47,8 @@
       type="text/css"
     />
 
-    <!------------ Create Page Head ---------->
-    <link
-      href="{{url_for('static',filename='css/create.css')}}"
-      rel="stylesheet"
-      type="text/css"
-    />
+
+
 
     <!----------------Login --------------->
 
@@ -85,9 +83,10 @@
       crossorigin="anonymous"
     ></script>
     <title>CollegeEventPortal</title>
-  </head>
 
+  </head>
   <body>
+
     <header class="navheader">
       <a href="{{ url_for('core.index') }}"
       > 
@@ -118,11 +117,6 @@
           href="{{ url_for('users.register') }}"
           class="navbtn solid-navbtn mobile-order nav-link"
           ><i class="fa-regular fa-calendar-check"> </i> Sign Up</a
-        >
-        <a
-          href="{{ url_for('events.create') }}"
-          class="navbtn solid-navbtn desktop-order nav-link"
-          ><i class="fa fa-plus-circle" aria-hidden="true"></i> Create event</a
         >
         <a
           href="{{ url_for('users.register') }}"
@@ -164,9 +158,10 @@
         ></span>
       </button>
     </header>
+   {% block content %} {% endblock %}
   </body>
 
-  {% block content %} {% endblock %}
+
   <!-- JS -->
 
   <script>
@@ -200,4 +195,5 @@
 
     
   </script>
+
 </html>

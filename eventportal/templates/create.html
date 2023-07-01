@@ -1,12 +1,12 @@
-{% extends "base.html" %}
-{% block content %}
-
-    <title>CreateEventForm</title>
-   
+<link
+      href="{{url_for('static',filename='css/create.css')}}"
+      rel="stylesheet"
+      type="text/css"
+/>
   <body>
-    <!-- <header class="header">
-      <img src="final.png" class="logo" alt="logo of jyothi" />
-    </header> -->
+    <header class="header">
+      <a href="/admin"><img src="{{ url_for('static',filename='img/final.png') }}" class="logo" alt="logo of jyothi" /></a>
+    </header>
     <div class="wrapper">
       <div class="title">Create Event</div>
 
@@ -97,10 +97,8 @@
       <button type="button" onclick="removeFlash()">Ok</button>
     </div>
     {% endfor %} {% endif %} {% endwith %}
-
   </body>
-
 </html>
-{% endblock %}
+
 
 

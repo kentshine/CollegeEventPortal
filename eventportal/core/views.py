@@ -12,13 +12,13 @@ def index():
 
 
 
+'''
 @core.route("/admin")
 def admin():
     page = request.args.get('page',1,type=int)
     events = Event.query.order_by(Event.event_date.asc()).paginate(page=page,per_page=4)
     return render_template('admin.html',events=events)
-
-
+'''
 
 @core.route('/info')
 def info():

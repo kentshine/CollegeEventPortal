@@ -10,7 +10,7 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/calendar']
+SCOPES = ['https://www.googleapis.com/auth/calendar','https://www.googleapis.com/auth/spreadsheets']
 
 
 def initialize():
@@ -29,7 +29,7 @@ def initialize():
 
     return creds
 
-def create_calendar_event(title, description, location, date, time,creator_email):
+def create_calendar_event(title, description, location, date, time):
     creds = initialize()
 
     try:
@@ -48,7 +48,7 @@ def create_calendar_event(title, description, location, date, time,creator_email
                 'dateTime': event_date,
                 'timeZone': 'Asia/Kolkata',
             },
-            'attendees': [{'email':creator_email}],
+            'attendees': [{'email':'jyothieventportal@gmail.com'}],
             'reminders': {
                 'useDefault':False,
                 'overrides': [

@@ -4,22 +4,23 @@ from flask_login import current_user,login_required
 from eventportal import db
 from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper,delete_wallpaper
-from eventportal.events.event_registration import add_user,delete_records
+from eventportal.events.event_registration import create_sheet,delete_records
 from eventportal.events.email_handler import send_email
 from eventportal.events.forms import CreateEventForm
-from eventportal.Calendar import create_calendar_event,update_calendar_event
+from eventportal.registration import create_calendar_event,update_calendar_event
+from eventportal import admin_id
 
 events = Blueprint('events',__name__)
 
 @events.route('/create',methods=['GET','POST'])
-@login_required
 def create():
     form = CreateEventForm()
 
     if form.validate_on_submit():
-        calendar_id = create_calendar_event(title=form.title.data, description=form.description.data, location=form.location.data,date=form.event_date.raw_data[0], time=form.event_time.raw_data[0],creator_email=current_user.email)
+        calendar_id = create_calendar_event(title=form.title.data, description=form.description.data, location=form.location.data,date=form.event_date.raw_data[0], time=form.event_time.raw_data[0])
         print(calendar_id)
-        event = Event(title=form.title.data,user_id=current_user.id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data,calendar_id=calendar_id)
+        event = Event(title=form.title.data,user_id=admin_id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data,calendar_id=calendar_id)
+        create_sheet(title=form.title.data)
         if request.files['wallpaper']:
             wallpaper = request.files['wallpaper']
             event_name = form.title.data
@@ -75,17 +76,17 @@ def event(event_id):
 
 @events.route("/event-list")
 def event_listview():
-    is_admin = request.args.get('is_admin')
-    print(is_admin)
     page = request.args.get('page',1,type=int)
     events = Event.query.paginate(page=page,per_page=10)
-    return render_template("MorePages.html",events=events,is_admin=is_admin)
+    return render_template("MorePages.html",events=events)
 
+
+'''
 @events.route("/<int:event_id>/update",methods=['GET','POST'])
 def update(event_id):
     form = CreateEventForm()
     event = Event.query.get_or_404(event_id)
-    if form.validate_on_submit():
+    if form.validate_on_submit():   
         event.title = form.title.data
         event.location = form.location.data
         event.event_time = form.event_time.raw_data[0]
@@ -109,16 +110,20 @@ def update(event_id):
         form.event_time.data = datetime.strptime(event.event_time,'%H:%M')
         form.event_date.data = datetime.strptime(event.event_date,'%Y-%m-%d').date()
         form.description.data = event.description
-    '''
+   
     if request.method == "POST":
         event.title = request.form.get('title')
         event.location = request.form.get('location')
         event.event_date = request.form.get('date')
         event.event_time = request.form.get('time')
         event.description = request.form.get('description')
-    '''
     return render_template('create.html',title='Update',form=form)
+'''
 
+
+
+
+'''
 @events.route('/<int:event_id>/delete',methods=['POST','GET'])
 def delete(event_id):
     event = Event.query.get_or_404(event_id)
@@ -130,4 +135,7 @@ def delete(event_id):
         next_page = url_for('core.admin')
 
     return redirect(next_page)
+'''
+
+
 
