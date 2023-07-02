@@ -4,11 +4,12 @@ from flask_login import current_user,login_required
 from eventportal import db
 from eventportal.models import Event,User
 from eventportal.events.picture_handler import add_wallpaper,delete_wallpaper
-from eventportal.events.event_registration import create_sheet,delete_records
+from eventportal.events.event_registration import add_user,delete_records
 from eventportal.events.email_handler import send_email
 from eventportal.events.forms import CreateEventForm
 from eventportal.registration import create_calendar_event,update_calendar_event
 from eventportal import admin_id
+from eventportal import background_threading
 
 events = Blueprint('events',__name__)
 
@@ -18,9 +19,7 @@ def create():
 
     if form.validate_on_submit():
         calendar_id = create_calendar_event(title=form.title.data, description=form.description.data, location=form.location.data,date=form.event_date.raw_data[0], time=form.event_time.raw_data[0])
-        print(calendar_id)
         event = Event(title=form.title.data,user_id=admin_id,location=form.location.data,event_date=form.event_date.raw_data[0],event_time=form.event_time.raw_data[0],description=form.description.data,calendar_id=calendar_id)
-        create_sheet(title=form.title.data)
         if request.files['wallpaper']:
             wallpaper = request.files['wallpaper']
             event_name = form.title.data
@@ -44,6 +43,7 @@ def create():
         if next_page is None or not next_page[0]=="/":
             next_page=url_for('core.index')
         return redirect(next_page)
+
 
     return render_template('create.html',form=form)
 

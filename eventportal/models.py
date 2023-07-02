@@ -1,3 +1,5 @@
+import threading
+
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -35,8 +37,6 @@ class AuthException(HTTPException):
             message,401,
             {'WWW-Authenticate': 'Basic realm="Login Required"'}
         ))
-
-
 
 
 class UserView(ModelView):
@@ -103,3 +103,14 @@ class Event(db.Model):
     def __repr__(self):
         return f"Event Id: {self.id} --- Date: {self.event_date} --- Title: {self.title} --- Created By:{self.user_id}"
 
+
+
+class NewThreadedTask(threading.Thread):
+    def __init__(self):
+        super(NewThreadedTask,self).__init__()
+
+    def run(self):
+        try:
+            print("threaded task has been completed")
+        except:
+            print("Error Occured !!")
