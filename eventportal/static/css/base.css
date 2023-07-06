@@ -393,3 +393,16 @@ small {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ffffff, #a6c8e7);
+  border-radius: 10px;
+}
