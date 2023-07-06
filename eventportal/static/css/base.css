@@ -68,7 +68,7 @@ small {
 }
 
 .main-nav {
-  margin-right: 0.4rem;
+  margin-right: 0.9rem;
   margin-left: auto;
 }
 
@@ -395,7 +395,7 @@ small {
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
