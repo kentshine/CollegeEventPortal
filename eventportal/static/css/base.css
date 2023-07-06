@@ -67,6 +67,11 @@ small {
   /* margin-left: 21rem; */
 }
 
+.main-nav {
+  margin-right: 0.4rem;
+  margin-left: auto;
+}
+
 .main-nav-list {
   list-style: none;
   display: flex;
@@ -77,6 +82,8 @@ small {
   border-radius: 50px;
   padding: 1rem 2rem;
   left: 50%;
+  margin-left: auto;
+  /* margin-right: auto; */
 }
 
 .main-nav-list a {
