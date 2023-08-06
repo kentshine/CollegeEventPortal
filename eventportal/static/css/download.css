@@ -1,0 +1,489 @@
+/* RESETS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: -1.3rem;
+}
+
+html,
+body {
+  font-family: "DM Sans", sans-serif;
+  height: 100%;
+  color: #555;
+  font-size: 65%;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+span {
+  font-weight: 700;
+}
+
+small {
+  font-size: 1.4rem;
+  margin-top: 1.6rem;
+}
+
+/* HEADER */
+.logo {
+  height: 6.5rem;
+}
+
+/* HEADER STICKY */
+.sticky .down-header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #f6f8fa;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10;
+  height: 8rem;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.05);
+}
+
+.sticky .section-hero {
+  margin-top: 8rem;
+}
+
+/* MOBILE NAV */
+.mobile-nav-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+  box-shadow: none;
+  width: fit-content;
+}
+
+.mobile-nav-btn i {
+  color: #000000;
+  font-size: 3.6rem;
+}
+
+.mobile-order,
+.mobile-close i {
+  display: none;
+}
+
+/* GENERAL HEADING STYLING */
+.subheading {
+  color: #77adf3;
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.down-section-events {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.28) 100%
+  );
+  margin: 0 auto;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.138);
+}
+
+.down-event-card-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 140rem;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.down-event-card {
+  border: 1px solid rgba(230, 230, 230, 0.6);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  transition: all 200ms ease-in;
+}
+
+.down-event-card img {
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+}
+
+.down-event-card-body {
+  padding: 2.2rem 2rem;
+}
+
+.down-event-card-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem 1rem;
+}
+
+.down-event-card-desc {
+  color: #626262;
+  font-size: 1.2rem;
+  margin: auto 1rem 1rem 1rem;
+}
+
+.down-event-stats {
+  font-size: 1.6rem;
+  padding: 1rem;
+  margin: 0 2rem;
+}
+
+.down-event-stats li {
+  padding-bottom: 1rem;
+  vertical-align: middle;
+}
+
+.down-event-stats i {
+  color: #525252;
+  font-size: 2rem;
+  margin-right: 1.2rem;
+}
+
+.down-event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.184);
+  background: white;
+}
+
+.event-types-overview {
+  margin: 4rem auto;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.event-types-overview span {
+  color: #7c7c7c;
+}
+
+.event-types-overview .event-types-list {
+  margin: 3rem 2rem;
+  transform: scale(1.2);
+  line-height: 4rem;
+}
+
+.event-types-overview .event-types-list li {
+  white-space: nowrap;
+}
+
+button {
+  display: block;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  border: none;
+  padding: 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  height: 4.4rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.down-evebtn {
+  border-radius: 40px;
+  font-size: 1.7rem;
+  font-weight: 800;
+  transition: all 120ms ease-in-out;
+  background-color: #6ba3e7;
+  color: white;
+  cursor: pointer;
+}
+
+.down-container {
+  width: 24rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outline-evebtn {
+  background: white;
+  box-shadow: inset 0 0 0 2px #111111;
+}
+
+.solid-evebtn {
+  background: #6ba3e7;
+  color: rgb(245, 245, 245);
+}
+
+.outline-evebtn:hover {
+  background: #f06868bb;
+  box-shadow: none;
+}
+
+.solid-evebtn:hover {
+  background: #77adf3;
+}
+
+@media only screen and (max-width: 83em) {
+  /* EVENT CARDS */
+  .down-event-card .event-types-list li {
+    padding: 0.4rem 0.6rem;
+    margin: 0.2rem;
+  }
+
+  .down-event-card .event-types-list {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  .down-event-card-body {
+    padding: 1rem 1.4rem;
+  }
+
+  .down-event-card-heading {
+    font-size: 1.6rem;
+    margin: 1rem 0.6rem;
+  }
+
+  .down-event-stats {
+    font-size: 1.4rem;
+    margin: 0 1rem;
+  }
+
+  .down-event-stats li {
+    padding-bottom: 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 72em) {
+  /* GENERAL */
+  html,
+  body {
+    font-size: 65%;
+  }
+}
+
+@media only screen and (max-width: 64em) {
+  /* GENERAL */
+  .heading-left {
+    text-align: center;
+  }
+
+  /* MOBILE NAV */
+  .mobile-nav-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-nav {
+    position: absolute;
+    background: #f8f8f8e6;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    color: #103201;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all 200ms ease-in;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .main-nav-list {
+    position: relative;
+    flex-direction: column;
+    background: none;
+    text-align: center;
+    gap: 4rem;
+  }
+
+  .main-nav-list a {
+    font-size: 2.4rem;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+  }
+
+  /* HAMBURGER NAV OPEN */
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .nav-open .mobile-close {
+    display: block;
+    z-index: 100;
+  }
+
+  .nav-open .mobile-open {
+    display: none;
+  }
+
+  .desktop-order {
+    display: none;
+  }
+
+  .mobile-order {
+    display: block;
+    margin: 3rem auto;
+    font-size: 2.4rem;
+  }
+
+  /* EVENT CARDS */
+  .down-event-card-overview {
+    grid-template-columns: repeat(2, minmax(28rem, 38rem));
+    gap: 3rem;
+  }
+
+  .down-event-card .event-types-list li {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .down-event-card .event-types-list {
+    font-size: 1.3rem;
+    line-height: 3rem;
+  }
+
+  .down-event-card-heading {
+    font-size: 2.2rem;
+    margin: 1rem 0.6rem;
+  }
+
+  .down-event-card-desc {
+    margin: auto 0.6rem 0.6rem 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  .down-event-stats {
+    font-size: 1.8rem;
+  }
+
+  .down-event-stats li {
+    padding-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 58em) {
+  /* GENERAL */
+  html,
+  body {
+    font-size: 60%;
+  }
+}
+
+@media only screen and (max-width: 48em) {
+  /* HERO */
+  .hero-group {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media only screen and (max-width: 35em) {
+  /* HERO */
+  .down-header {
+    padding: 0 2rem;
+  }
+
+  /* GENERAL */
+  .subheading {
+    font-size: 2rem;
+  }
+
+  /* EVENT CARDS */
+  .event-types-overview .event-types-list {
+    margin: 1rem;
+    transform: scale(1);
+  }
+
+  .down-event-card-overview {
+    grid-template-columns: auto;
+  }
+
+  .down-event-card {
+    width: 40rem;
+  }
+
+  .down-event-card-body {
+    padding: 2rem;
+  }
+
+  .down-event-card-heading {
+    font-size: 2.4rem;
+  }
+
+  .down-event-card-desc {
+    font-size: 1.6rem;
+  }
+
+  .down-event-stats {
+    font-size: 2rem;
+  }
+
+  .event-types-overview br {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 30em) {
+  /* GENERAL */
+  .body-heading br {
+    display: none;
+  }
+
+  .body-heading {
+    margin: 0 2rem;
+  }
+
+  /* FEATURED SECTION */
+  .featured-logos img {
+    height: 3.2rem;
+  }
+
+  /* EVENT CARDS */
+  .down-event-card {
+    width: 32rem;
+  }
+
+  /* SIGN UP */
+  .signup-box {
+    grid-template-columns: auto;
+  }
+
+  .signup-heading {
+    font-size: 3.4rem;
+  }
+
+  .signup-img {
+    height: 30rem;
+  }
+}
