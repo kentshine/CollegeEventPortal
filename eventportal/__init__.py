@@ -11,7 +11,7 @@ app = Flask(__name__)
 mail = Mail(app)
 
 ########## APP CONFIG #############
-app.config['FLASK_ADMIN_SWATCH'] = 'readable'
+app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 app.config['SECRET_KEY'] = '1234'
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -38,10 +38,10 @@ basic_auth.init_app(app)
 
 
 ## admin ##
-admin_id = 884685
 admin = Admin(app, name='eventportal', template_mode='bootstrap3')
 admin.add_view(EventView(Event,db.session))
 admin.add_view(UserView(User,db.session))
+
 
 
 

@@ -57,7 +57,3 @@ def main():
             print('%s, %s' % (row[0], row[4]))
     except HttpError as err:
         print(err)
-
-
-if __name__ == '__main__':
-    main()

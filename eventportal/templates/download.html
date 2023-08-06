@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< Updated upstream
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -165,3 +166,27 @@
     
   </body>
 </html>
+=======
+<head>
+    <meta charset="UTF-8">
+    <title>Download</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    {% for event in events.items %}
+    <div class="card" style="width: 18rem;">
+  <img src="{{ url_for('static',filename='event_wallpapers//' + event.wallpaper) }}" class="card-img-top" alt="Image Not Found">
+  <div class="card-body">
+    <h5 class="card-title">{{ event.title }}</h5>
+    <p class="card-text">{{ event.description[:50] }}...</p>
+    <a href="{{ url_for('static',filename='event_records//' + event.title+'.csv') }}" class="btn btn-primary">Download CSV</a>
+  </div>
+        {% endfor %}
+</div>
+</div>
+
+</body>
+</html>
+>>>>>>> Stashed changes

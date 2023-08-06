@@ -1,5 +1,4 @@
 import threading
-
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -29,7 +28,6 @@ class EventView(ModelView):
     @expose('/new/', methods=('GET', 'POST'))
     def create_view(self):
         return redirect(url_for('events.create'))
-
 
 class AuthException(HTTPException):
     def __init__(self,message):

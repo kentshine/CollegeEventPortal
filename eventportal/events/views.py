@@ -81,6 +81,9 @@ def event_listview():
     return render_template("MorePages.html",events=events)
 
 
+
+
+
 '''
 @events.route("/<int:event_id>/update",methods=['GET','POST'])
 def update(event_id):
