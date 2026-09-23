@@ -1,76 +1,70 @@
-<br/>
 <p align="center">
-    <img src="eventportal/static/img/final.png" alt="Logo" width="300" height="100">
-    <h1 align="center">JEC Event Management Web Application</h1>
+    <img src="eventportal/static/img/final.png" alt="Logo" width="300">
+    <h1 align="center">College Event Management Web Application</h1>
+</p>
 
-  </a>
+<p align="center">
+  <strong>Stay connected with your college events and community through our innovative event portal!</strong><br>
+  <a href="https://college-event-portal-0c76.onrender.com/"><strong>Live Website: college-event-portal-0c76.onrender.com</strong></a>
+</p>
 
-  <p align="center">
-    Stay connected with college events' & community through our innovative event portal!
+<hr>
 
-## Introduction
+##  Introduction
 
-**This is a user-friendly website created with HTML, CSS, Js, and Flask, tailored to streamline event registration processes within college campuse. The website provides a seamless experience for both event organizers and participants, offering a comprehensive platform to browse, register, and manage various events.**
+**College Event Portal** is a user-friendly website created with HTML, CSS, JavaScript, and Flask, tailored to streamline event registration processes within college campuses. The website provides a seamless experience for both event organizers and participants, offering a comprehensive platform to browse, register, and manage various events.
 
-   
-## Requirements
+##  Key Features
 
- Listing all the dependencies specific to this project :
+- **User Authentication:** Secure login and registration for students to browse and manage their events.
+- **Event Dashboard:** A modern, responsive grid to discover new events happening around the campus.
+- **Ticket Generation:** Automatically generates a digital ticket complete with a barcode upon registering for an event.
+- **Admin Panel:** A comprehensive admin desk built with Flask-Admin that allows administrators to easily manage users, create new events, and download lists of attendees.
+- **Email Notifications:** Background threading implemented to seamlessly send confirmation emails to users upon event registration.
+- **Fully Responsive:** Optimized for desktops, tablets, and mobile devices.
 
-```sh
-alembic==1.11.1
-blinker==1.6.2
-click==8.1.3
-colorama==0.4.6
-dnspython==2.3.0
-email-validator==2.0.0.post2
-Flask==2.3.2
-Flask-Admin==1.6.1
-Flask-Assets==2.0
-Flask-Login==0.6.2
-Flask-Migrate==4.0.4
-Flask-SQLAlchemy==3.0.3
-Flask-WTF==1.1.1
-greenlet==2.0.2
-Pillow==9.5.0
-idna==3.4
-itsdangerous==2.1.2
-Jinja2==3.1.2
-Mako==1.2.4
-MarkupSafe==2.1.2
-SQLAlchemy==2.0.13
-typing_extensions==4.5.0
-webassets==2.0
-Werkzeug==2.3.4
-WTForms==3.0.1
-```
+##  Tech Stack
 
-## Installation
+- **Backend:** Python, Flask, Flask-SQLAlchemy, Flask-Login, Flask-Mail
+- **Frontend:** HTML5, Vanilla CSS3 (Custom Responsive Grid), JavaScript
+- **Database:** PostgreSQL (Production) / SQLite (Development)
+- **Deployment:** Hosted live on Render
 
+##  Installation & Local Development
 
-Install the requirements'
-```sh
-pip install -r requirements.txt
-```
+To run this project locally on your machine, follow these steps:
 
-Run app.py,
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/yourusername/College-Event-Portal.git
+   cd College-Event-Portal
+   ```
 
-```
-python app.py
-```
+2. **Set up a virtual environment (optional but recommended)**
+   ```sh
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   ```
 
-➡ http://127.0.0.1:5000
+3. **Install the dependencies**
+   ```sh
+   pip install -r requirements.txt
+   ```
 
-## Acknowledgements
+4. **Environment Variables**
+   Ensure you set up any required environment variables such as `SECRET_KEY`, `DATABASE_URL`, and SMTP credentials if you plan to test the email functionality.
+
+5. **Run the Application**
+   ```sh
+   python app.py
+   ```
+   *The app will be accessible at http://127.0.0.1:5000*
+
+##  Acknowledgements
 
 * [Ejin](https://github.com/ejinbt/)
 * [WOC](https://discord.com/invite/program)
 
-## License
+##  License
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
-
-
-
-
-
+Distributed under the MIT License. See `LICENSE` for more information.
