@@ -36,8 +36,8 @@ To run this project locally on your machine, follow these steps:
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/yourusername/College-Event-Portal.git
-   cd College-Event-Portal
+   git clone https://github.com/yourusername/CollegeEventPortal.git
+   cd CollegeEventPortal
    ```
 
 2. **Set up a virtual environment (optional but recommended)**
